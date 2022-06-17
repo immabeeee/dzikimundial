@@ -8,7 +8,9 @@
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test:app": "ng test dzikimundial-ui",
+    "test:libs": "ng test pipes-sort-array-by-key",
+    "test:all": "npm run test:app && npm run test:libs",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
@@ -30,6 +32,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^12.0.0",
+    "@angular/cdk": "^12.0.0",
     "@angular/common": "^12.0.0",
     "@angular/compiler": "^12.0.0",
     "@angular/core": "^12.0.0",
@@ -63,8 +66,13 @@
     "@nrwl/linter": "12.5.7",
     "@nrwl/nest": "12.5.7",
     "@nrwl/node": "12.5.7",
+    "@nrwl/storybook": "12.5.7",
     "@nrwl/tao": "12.5.7",
     "@nrwl/workspace": "12.5.7",
+    "@storybook/addon-essentials": "~6.3.0",
+    "@storybook/angular": "~6.3.0",
+    "@storybook/builder-webpack5": "~6.3.0",
+    "@storybook/manager-webpack5": "~6.3.0",
     "@types/jest": "26.0.8",
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "4.19.0",
@@ -82,5 +90,15 @@
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
     "typescript": "~4.2.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,md,ts,html,graphql}": [
+      "yarn format --uncommitted"
+    ]
   }
 }

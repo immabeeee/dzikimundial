@@ -1,0 +1,30 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;600;700&display=swap');
+
+// icons
+@import url('https://css.gg/more.css');
+@import url('https://css.gg/close.css');
+@import url('https://css.gg/more-vertical-alt.css');
+
+:root {
+    --font-family: 'Manrope', sans-serif;
+    --white-100: #fff;
+    --grey-50: #B8B8B8;
+    --grey-100: #262626;
+    --grey-200: #111111;
+    --grey-300: #080808;
+    --black-100: #000000;
+    --blue-100: #00C8C8;
+    --blue-200: #009494;
+    --green-100: #1da03e;
+    --red-100: #c84900;
+
+    --font-700: 700;
+    --font-600: 600;
+    --font-500: 500;
+    --font-300: 300;
+
+    --font-xl: '18px';
+    --font-l: '16px';
+    --font-m: '14px';
+}

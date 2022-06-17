@@ -1,0 +1,29 @@
+<section class="container">
+    <div class="sidebar-conatiner">
+        <ul class="menu-list">
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-groups" [text]="ROUTER_LINK.GROUPS"
+                    [isSecondary]="true" [alignText]="'end'" [link]="ROUTER_LINK.GROUPS">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-single" [text]="ROUTER_LINK.SINGLE"
+                    [isSecondary]="true" [alignText]="'end'" [link]="ROUTER_LINK.SINGLE">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-winners" [text]="ROUTER_LINK.WINNERS"
+                    [isSecondary]="true" [alignText]="'end'" [link]="ROUTER_LINK.WINNERS">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-best" [text]="ROUTER_LINK.BEST" [isSecondary]="true"
+                    [link]="ROUTER_LINK.BEST" [alignText]="'end'">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+        </ul>
+    </div>
+    <div class="content-container">
+        <router-outlet></router-outlet>
+    </div>
+</section>

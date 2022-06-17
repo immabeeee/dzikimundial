@@ -1,0 +1,32 @@
+.menu-list {
+    height: 100%;
+    display: flex;
+
+    .menu-item {
+        height: 100%;
+        list-style: none;
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100%;
+    width: 100%;
+
+    .sidebar-conatiner {
+        height: 100%;
+        width: 100%;
+        border-right: 1px solid var(--grey-100);
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+
+            .menu-item{
+                height: 80px;
+            }
+        }
+    }
+
+}

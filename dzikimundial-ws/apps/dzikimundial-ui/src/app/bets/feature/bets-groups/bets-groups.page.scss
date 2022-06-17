@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+
+    .menu-list {
+        height: 100%;
+        display: flex;
+
+        .menu-item {
+            height: 100%;
+            list-style: none;
+        }
+    }
+
+    .button{
+        position: absolute;
+        right: 50px;
+        bottom: 20px;
+    }
+}
