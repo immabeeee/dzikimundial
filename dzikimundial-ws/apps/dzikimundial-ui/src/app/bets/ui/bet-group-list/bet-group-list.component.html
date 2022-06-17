@@ -1,0 +1,5 @@
+<div class="group-list-container" *ngIf="groups">
+    <ng-container *ngFor="let group of groups">
+        <dzikimundial-ws-bet-group data-test-id="bet-group-team-group" [group]="group"></dzikimundial-ws-bet-group>
+    </ng-container>
+</div>

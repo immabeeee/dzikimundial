@@ -1,0 +1,6 @@
+<div class="container">
+    <ng-container *ngIf="groups$ | async as groups">
+        <dzikimundial-ws-bet-group-list [groups]="groups"></dzikimundial-ws-bet-group-list>
+        <button class="button">save</button>
+    </ng-container>
+</div>

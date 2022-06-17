@@ -1,0 +1,14 @@
+<div class="team-container" *ngIf="team">
+    <div class="position" [ngClass]="{'promotion': [0, 1].includes(team.position)}">
+        <p data-test-id="bet-group-team-position">
+            {{team.position}}
+        </p>
+    </div>
+    <div class="team-details">
+        <dzikimundial-ws-ui-flag data-test-id="bet-group-team-flag" [url]="team.logo" [description]="team.description">
+        </dzikimundial-ws-ui-flag>
+        <p class="team-name" data-test-id="bet-group-team-name">
+            {{team.name}}
+        </p>
+    </div>
+</div>

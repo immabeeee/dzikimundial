@@ -1,0 +1,6 @@
+.group-list-container {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+}

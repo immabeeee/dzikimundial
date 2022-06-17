@@ -1,0 +1,12 @@
+<div class="group-item-container" *ngIf="group">
+    <div class="header-container">
+        <p data-test-id="bet-group-team-group-name">{{group.name}}</p>
+        <dzikimundial-ws-ui-icon-button [icon]="'gg-more-vertical-alt'"></dzikimundial-ws-ui-icon-button>
+    </div>
+    <div class="teams-container" *ngIf="group.teams && group.teams.length > 0" cdkDropList
+        [cdkDropListData]="group.teams" (cdkDropListDropped)="handleDropListItem($event)">
+        <ng-container *ngFor="let team of group.teams | sortArrayByKey:'position'">
+            <dzikimundial-ws-bet-group-team [team]="team" cdkDrag></dzikimundial-ws-bet-group-team>
+        </ng-container>
+    </div>
+</div>

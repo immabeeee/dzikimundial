@@ -14,7 +14,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "build-storybook"]
       }
     }
   },
@@ -33,12 +33,33 @@
     "api-interfaces": {
       "tags": []
     },
+    "assets": {
+      "tags": []
+    },
     "dzikimundial-ui": {
       "tags": []
     },
     "dzikimundial-ui-e2e": {
       "tags": [],
       "implicitDependencies": ["dzikimundial-ui"]
+    },
+    "pipes-sort-array-by-key": {
+      "tags": []
+    },
+    "theme": {
+      "tags": []
+    },
+    "ui-flag": {
+      "tags": []
+    },
+    "ui-icon-button": {
+      "tags": []
+    },
+    "ui-logo": {
+      "tags": []
+    },
+    "ui-nav-link": {
+      "tags": []
     }
   }
 }
