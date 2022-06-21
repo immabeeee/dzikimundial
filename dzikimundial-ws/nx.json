@@ -49,6 +49,9 @@
     "theme": {
       "tags": []
     },
+    "ui-button": {
+      "tags": []
+    },
     "ui-flag": {
       "tags": []
     },
@@ -59,6 +62,9 @@
       "tags": []
     },
     "ui-nav-link": {
+      "tags": []
+    },
+    "ui-tooltip": {
       "tags": []
     }
   }

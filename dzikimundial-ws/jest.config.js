@@ -9,5 +9,7 @@ module.exports = {
     '<rootDir>/libs/ui-icon-button',
     '<rootDir>/libs/ui-flag',
     '<rootDir>/libs/pipes/sort-array-by-key',
+    '<rootDir>/libs/ui-button',
+    '<rootDir>/libs/ui-tooltip',
   ],
 }

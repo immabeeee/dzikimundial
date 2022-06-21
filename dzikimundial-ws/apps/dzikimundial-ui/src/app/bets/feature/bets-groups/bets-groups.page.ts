@@ -8,7 +8,7 @@ import { BetGroup } from '../../models/bets-groups/bets-group.model'
   templateUrl: './bets-groups.page.html',
   styleUrls: ['./bets-groups.page.scss'],
 })
-export class BetsBrowserGroupsComponent {
+export class BetsGroupsComponent {
   groups$: Observable<BetGroup[]> = this.betsGroupsService.getGroups$()
 
   constructor(private betsGroupsService: BetsGroupsService) {

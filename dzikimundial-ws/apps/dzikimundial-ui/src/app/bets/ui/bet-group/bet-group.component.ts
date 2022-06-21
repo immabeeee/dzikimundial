@@ -15,7 +15,6 @@ export class BetsGroupComponent {
   constructor(private betsGroupTeamsService: BetsGroupTeamsService) {}
 
   public handleDropListItem(droppedItem: CdkDragDrop<BetGroupTeam[]>): void {
-    console.log("")
     this.group.teams = this.betsGroupTeamsService.changeTeamPosition(
       droppedItem.previousContainer.data,
       droppedItem.container.data,

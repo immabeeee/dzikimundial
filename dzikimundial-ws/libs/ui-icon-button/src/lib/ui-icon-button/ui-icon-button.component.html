@@ -1,5 +1,11 @@
-<button class="button">
+<button class="button" data-test-id="dm-icon-button">
     <div class="icon-container">
-        <i class="{{icon}}"></i>
+        <ng-container *ngIf="isLoading; else iconTempl">
+            <i class="gg-spinner-two"></i>
+        </ng-container>
     </div>
 </button>
+
+<ng-template #iconTempl>
+    <i *ngIf="icon" class="{{icon}}"></i>
+</ng-template>

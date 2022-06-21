@@ -1,21 +1,21 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing'
 import { BetsGroupsPageRoutingModule } from './bets-groups-page-routing.module'
-import { BetsBrowserGroupsComponent } from './bets-groups.page'
+import { BetsGroupsComponent } from './bets-groups.page'
 import { BetsGroupsPageModule } from './bets-groups.page.module'
 
-let fixture: ComponentFixture<BetsBrowserGroupsComponent>
+let fixture: ComponentFixture<BetsGroupsComponent>
 
-describe('BetsBrowserGroupsComponent', () => {
+describe('BetsGroupsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BetsBrowserGroupsComponent],
+      declarations: [BetsGroupsComponent],
       imports: [BetsGroupsPageRoutingModule, BetsGroupsPageModule],
       providers: [],
     }).compileComponents()
   }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BetsBrowserGroupsComponent)
+    fixture = TestBed.createComponent(BetsGroupsComponent)
     fixture.detectChanges()
   })
 

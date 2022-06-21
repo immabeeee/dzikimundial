@@ -21,7 +21,7 @@ const routes: Routes = [
       {
         path: BETS_ROUTER_LINK.SINGLE,
         loadChildren: () =>
-          import('../bets-groups/bets-groups.page.module').then((module) => module.BetsGroupsPageModule),
+          import('../bets-single/bets-single.page.module').then((module) => module.BetsSinglePageModule),
       },
       {
         path: BETS_ROUTER_LINK.WINNERS,

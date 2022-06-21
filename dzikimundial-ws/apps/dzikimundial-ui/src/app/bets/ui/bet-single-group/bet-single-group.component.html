@@ -1,0 +1,10 @@
+<div class="container" *ngIf="groupedSingles">
+    <div class="header-container">
+        <p data-test-id="bet-single-group-date">{{groupedSingles.date}}</p>
+    </div>
+    <div class="teams-container" *ngIf="groupedSingles.singles && groupedSingles.singles.length > 0">
+        <ng-container *ngFor="let single of groupedSingles.singles">
+            <dzikimundial-ws-bet-single data-test-id="bet-single-item" [single]="single"></dzikimundial-ws-bet-single>
+        </ng-container>
+    </div>
+</div>
