@@ -1,0 +1,51 @@
+.button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    transform: scale(1);
+    background: var(--grey-100);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--white-100);
+    height: 50px;
+    font-weight: 500;
+    font-size: var(font-l);
+    transition: 0.5s;
+
+    &:hover {
+        animation: primary 2s infinite forwards ease-in-out;
+    }
+
+    &:active,
+    &:focus {
+        animation: primary 1s backwards forwards ease-in-out;
+    }
+
+    &.disabled {
+        opacity: 50%;
+        cursor: default;
+        animation: none;
+    }
+}
+
+
+@keyframes primary {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+    }
+}

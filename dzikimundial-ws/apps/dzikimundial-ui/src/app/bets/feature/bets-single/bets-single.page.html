@@ -1,0 +1,6 @@
+<div class="container">
+    <ng-container *ngIf="singlesGroupedByDate$ | async as singlesGroupedByDate">
+        <dzikimundial-ws-bet-single-list [singlesGroupedByDate]="singlesGroupedByDate">
+        </dzikimundial-ws-bet-single-list>
+    </ng-container>
+</div>

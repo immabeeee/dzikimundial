@@ -2,7 +2,9 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { BetsGroupTeamModule } from './bet-group-team.module'
 import { BetsGroupTeamComponent } from './bet-group-team.component'
-import * as testData from './../../test/groups.test-data'
+import * as teamsTestData from './../../test/teams.test-data'
+import { TeamName } from '../../models/bets-groups/bets-group.model'
+import { ChangeDetectionStrategy } from '@angular/core'
 
 let fixture: ComponentFixture<BetsGroupTeamComponent>
 let component: BetsGroupTeamComponent
@@ -13,19 +15,16 @@ describe('BetsGroupTeamComponent', () => {
       declarations: [BetsGroupTeamComponent],
       imports: [BetsGroupTeamModule],
       providers: [],
-    }).compileComponents()
+    })
+    .overrideComponent(BetsGroupTeamComponent, {
+      set: { changeDetection: ChangeDetectionStrategy.Default },
+    })
+    .compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BetsGroupTeamComponent)
     component = fixture.componentInstance
-    component.team = {
-      id: 'f47465b7-64f1-4c03-a610-62f6a860d341',
-      description: 'Japonia',
-      name: 'Japonia',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Japan_%28%E2%80%931870%29.svg/1920px-Flag_of_Japan_%28%E2%80%931870%29.svg.png',
-      position: 2,
-    }
     fixture.detectChanges()
   })
 
@@ -38,7 +37,7 @@ describe('BetsGroupTeamComponent', () => {
 
   it('should display position', () => {
     // given
-    const team = testData.groups[0].teams[0]
+    const team = teamsTestData.findTeam(TeamName.JAPAN)
     component.team = team
     fixture.detectChanges()
     const postionParagraph: HTMLParagraphElement = fixture.debugElement.query(
@@ -53,7 +52,7 @@ describe('BetsGroupTeamComponent', () => {
 
   it('should display flag', () => {
     // given
-    const team = testData.groups[0].teams[0]
+    const team = teamsTestData.findTeam(TeamName.JAPAN)
     component.team = team
     fixture.detectChanges()
     const flagImage: HTMLImageElement = fixture.debugElement.query(
@@ -69,7 +68,7 @@ describe('BetsGroupTeamComponent', () => {
 
   it('should display name', () => {
     // given
-    const team = testData.groups[0].teams[0]
+    const team = teamsTestData.findTeam(TeamName.JAPAN)
     component.team = team
     fixture.detectChanges()
     const nameParagraph: HTMLParagraphElement = fixture.debugElement.query(

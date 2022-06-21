@@ -6,11 +6,6 @@
     background: #0000007d;
     color: #fff;
 
-    &:hover {
-        background-color: var(--black-100);
-        transition: 0.2s;
-    }
-
     .icon-container {
         display: flex;
         justify-content: center;
@@ -21,5 +16,45 @@
         i {
             transform: scale(0.9);
         }
+    }
+
+    &:hover {
+        background-color: var(--black-100);
+        transition: 0.2s;
+        animation: primary 2s infinite forwards ease-in-out;
+    }
+
+    &:active,
+    &:focus {
+        animation: primary 2s infinite forwards ease-in-out;
+        animation: click 0.3s normal forwards ease-in-out;
+    }
+}
+
+@keyframes primary {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+    }
+}
+
+@keyframes click {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

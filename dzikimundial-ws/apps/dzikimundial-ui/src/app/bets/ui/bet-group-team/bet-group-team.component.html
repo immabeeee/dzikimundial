@@ -5,10 +5,6 @@
         </p>
     </div>
     <div class="team-details">
-        <dzikimundial-ws-ui-flag data-test-id="bet-group-team-flag" [url]="team.logo" [description]="team.description">
-        </dzikimundial-ws-ui-flag>
-        <p class="team-name" data-test-id="bet-group-team-name">
-            {{team.name}}
-        </p>
+        <dzikimundial-ws-team-info [team]="team" [isReversed]="true"></dzikimundial-ws-team-info>
     </div>
 </div>

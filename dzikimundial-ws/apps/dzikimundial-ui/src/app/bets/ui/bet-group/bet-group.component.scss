@@ -2,6 +2,7 @@
     width: 100%;
     border: 1px solid var(--grey-100);
 
+    .action-container,
     .header-container {
         width: 100%;
         display: flex;
@@ -13,6 +14,10 @@
         border-bottom: 1px solid var(--grey-100);
         color: var(--white-100);
         font-weight: var(--font-700);
+    }
+
+    .action-container{
+        justify-content: flex-end;
     }
 }
 
@@ -32,7 +37,7 @@
 dzikimundial-ws-bet-group-team {
     width: 100%;
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 80px 1fr;
     align-items: center;
     background-color: var(--grey-200);
     height: 80px;

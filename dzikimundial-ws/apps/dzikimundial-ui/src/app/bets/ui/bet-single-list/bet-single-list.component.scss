@@ -1,0 +1,6 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+}
