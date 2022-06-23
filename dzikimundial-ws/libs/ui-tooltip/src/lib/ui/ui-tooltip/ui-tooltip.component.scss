@@ -1,0 +1,46 @@
+:host {
+    position: fixed;
+    z-index: 999999;
+}
+
+.tooltip-container {
+    text-align: center;
+    position: fixed;
+    background: var(--grey-100);
+    color: var(--white-100);
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translate(-50%, -30%);
+    animation: tooltip-slide 0.18s ease-out 0.2s;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: var(--font-m);
+    font-weight: var(--font-500);
+
+    &::after {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 10px solid var(--grey-100);
+        content: ' ';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes tooltip-slide {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -30%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
