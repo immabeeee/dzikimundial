@@ -36,6 +36,20 @@
     "assets": {
       "tags": []
     },
+    "dzikimundial-admin-ui": {
+      "tags": []
+    },
+    "dzikimundial-admin-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dzikimundial-admin-ui"]
+    },
+    "dzikimundial-shell-ui": {
+      "tags": []
+    },
+    "dzikimundial-shell-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dzikimundial-shell-ui"]
+    },
     "dzikimundial-ui": {
       "tags": []
     },
