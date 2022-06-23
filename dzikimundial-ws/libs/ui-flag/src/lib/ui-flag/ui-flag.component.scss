@@ -1,4 +1,6 @@
 .flag-container {
+    display: flex;
+    align-items: center;
     img {
         object-fit: cover;
         border-radius: 50%;

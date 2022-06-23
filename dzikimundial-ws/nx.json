@@ -36,6 +36,20 @@
     "assets": {
       "tags": []
     },
+    "dzikimundial-admin-ui": {
+      "tags": []
+    },
+    "dzikimundial-admin-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dzikimundial-admin-ui"]
+    },
+    "dzikimundial-shell-ui": {
+      "tags": []
+    },
+    "dzikimundial-shell-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dzikimundial-shell-ui"]
+    },
     "dzikimundial-ui": {
       "tags": []
     },
@@ -49,6 +63,9 @@
     "theme": {
       "tags": []
     },
+    "ui-button": {
+      "tags": []
+    },
     "ui-flag": {
       "tags": []
     },
@@ -59,6 +76,9 @@
       "tags": []
     },
     "ui-nav-link": {
+      "tags": []
+    },
+    "ui-tooltip": {
       "tags": []
     }
   }

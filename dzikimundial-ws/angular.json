@@ -8,12 +8,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -38,12 +42,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -59,7 +67,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/api-interfaces/**/*.ts"
+            ]
           }
         }
       }
@@ -72,7 +82,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/assets"],
+          "outputs": [
+            "coverage/libs/assets"
+          ],
           "options": {
             "jestConfig": "libs/assets/jest.config.js",
             "passWithNoTests": true
@@ -81,7 +93,296 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/assets/src/**/*.ts", "libs/assets/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/assets/src/**/*.ts",
+              "libs/assets/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "dzikimundial-admin-ui": {
+      "projectType": "application",
+      "root": "apps/dzikimundial-admin-ui",
+      "sourceRoot": "apps/dzikimundial-admin-ui/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/dzikimundial-admin-ui",
+            "index": "apps/dzikimundial-admin-ui/src/index.html",
+            "main": "apps/dzikimundial-admin-ui/src/main.ts",
+            "polyfills": "apps/dzikimundial-admin-ui/src/polyfills.ts",
+            "tsConfig": "apps/dzikimundial-admin-ui/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/dzikimundial-admin-ui/src/favicon.ico",
+              "apps/dzikimundial-admin-ui/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./libs/assets/src/lib",
+                "output": "./assets"
+              }
+            ],
+            "styles": [
+              "apps/dzikimundial-admin-ui/src/styles.scss",
+              "./libs/theme/src/lib/theme.scss",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "apps/dzikimundial-admin-ui/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/dzikimundial-admin-ui/src/environments/environment.ts",
+                  "with": "apps/dzikimundial-admin-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "apps/dzikimundial-admin-ui/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "dzikimundial-admin-ui:build:production",
+              "extraWebpackConfig": "apps/dzikimundial-admin-ui/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "dzikimundial-admin-ui:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4202,
+            "extraWebpackConfig": "apps/dzikimundial-admin-ui/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "dzikimundial-admin-ui:build",
+            "extraWebpackConfig": "apps/dzikimundial-admin-ui/webpack.config.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/dzikimundial-admin-ui/src/**/*.ts",
+              "apps/dzikimundial-admin-ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/dzikimundial-admin-ui"
+          ],
+          "options": {
+            "jestConfig": "apps/dzikimundial-admin-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "dzikimundial-admin-ui-e2e": {
+      "root": "apps/dzikimundial-admin-ui-e2e",
+      "sourceRoot": "apps/dzikimundial-admin-ui-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/dzikimundial-admin-ui-e2e/cypress.json",
+            "tsConfig": "apps/dzikimundial-admin-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "dzikimundial-admin-ui:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dzikimundial-admin-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/dzikimundial-admin-ui-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "dzikimundial-shell-ui": {
+      "projectType": "application",
+      "root": "apps/dzikimundial-shell-ui",
+      "sourceRoot": "apps/dzikimundial-shell-ui/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/dzikimundial-shell-ui",
+            "index": "apps/dzikimundial-shell-ui/src/index.html",
+            "main": "apps/dzikimundial-shell-ui/src/main.ts",
+            "polyfills": "apps/dzikimundial-shell-ui/src/polyfills.ts",
+            "tsConfig": "apps/dzikimundial-shell-ui/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/dzikimundial-shell-ui/src/favicon.ico",
+              "apps/dzikimundial-shell-ui/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./libs/assets/src/lib",
+                "output": "./assets"
+              }
+            ],
+            "styles": [
+              "apps/dzikimundial-shell-ui/src/styles.scss",
+              "./libs/theme/src/lib/theme.scss",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "apps/dzikimundial-shell-ui/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/dzikimundial-shell-ui/src/environments/environment.ts",
+                  "with": "apps/dzikimundial-shell-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "apps/dzikimundial-shell-ui/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "dzikimundial-shell-ui:build:production",
+              "extraWebpackConfig": "apps/dzikimundial-shell-ui/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "dzikimundial-shell-ui:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "extraWebpackConfig": "apps/dzikimundial-shell-ui/webpack.config.js",
+            "port": 4200
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dzikimundial-shell-ui:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/dzikimundial-shell-ui/src/**/*.ts",
+              "apps/dzikimundial-shell-ui/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/dzikimundial-shell-ui"
+          ],
+          "options": {
+            "jestConfig": "apps/dzikimundial-shell-ui/jest.config.js",
+            "passWithNoTests": true,
+            "extraWebpackConfig": "apps/dzikimundial-shell-ui/webpack.config.js"
+          }
+        }
+      }
+    },
+    "dzikimundial-shell-ui-e2e": {
+      "root": "apps/dzikimundial-shell-ui-e2e",
+      "sourceRoot": "apps/dzikimundial-shell-ui-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/dzikimundial-shell-ui-e2e/cypress.json",
+            "tsConfig": "apps/dzikimundial-shell-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "dzikimundial-shell-ui:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dzikimundial-shell-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/dzikimundial-shell-ui-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -93,8 +394,10 @@
       "prefix": "dzikimundial-ws",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "builder": "ngx-build-plus:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/dzikimundial-ui",
             "index": "apps/dzikimundial-ui/src/index.html",
@@ -111,8 +414,14 @@
                 "output": "./assets"
               }
             ],
-            "styles": ["apps/dzikimundial-ui/src/styles.scss", "./libs/theme/src/lib/theme.scss"],
-            "scripts": []
+            "styles": [
+              "apps/dzikimundial-ui/src/styles.scss",
+              "./libs/theme/src/lib/theme.scss",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "apps/dzikimundial-ui/webpack.config.js",
+            "commonChunk": false
           },
           "configurations": {
             "production": {
@@ -134,7 +443,8 @@
                   "with": "apps/dzikimundial-ui/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "extraWebpackConfig": "apps/dzikimundial-ui/webpack.prod.config.js"
             },
             "development": {
               "buildOptimizer": false,
@@ -148,10 +458,11 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dzikimundial-ui:build:production"
+              "browserTarget": "dzikimundial-ui:build:production",
+              "extraWebpackConfig": "apps/dzikimundial-ui/webpack.prod.config.js"
             },
             "development": {
               "browserTarget": "dzikimundial-ui:build:development"
@@ -159,7 +470,9 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "proxyConfig": "apps/dzikimundial-ui/proxy.conf.json"
+            "proxyConfig": "apps/dzikimundial-ui/proxy.conf.json",
+            "extraWebpackConfig": "apps/dzikimundial-ui/webpack.config.js",
+            "port": 4201
           }
         },
         "extract-i18n": {
@@ -171,15 +484,21 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/dzikimundial-ui/src/**/*.ts", "apps/dzikimundial-ui/src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/dzikimundial-ui/src/**/*.ts",
+              "apps/dzikimundial-ui/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/dzikimundial-ui"],
+          "outputs": [
+            "coverage/apps/dzikimundial-ui"
+          ],
           "options": {
             "jestConfig": "apps/dzikimundial-ui/jest.config.js",
-            "passWithNoTests": true
+            "passWithNoTests": true,
+            "extraWebpackConfig": "apps/dzikimundial-ui/webpack.config.js"
           }
         },
         "storybook": {
@@ -199,7 +518,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/dzikimundial-ui",
@@ -236,7 +557,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/dzikimundial-ui-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/dzikimundial-ui-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -249,7 +572,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/pipes/sort-array-by-key"],
+          "outputs": [
+            "coverage/libs/pipes/sort-array-by-key"
+          ],
           "options": {
             "jestConfig": "libs/pipes/sort-array-by-key/jest.config.js",
             "passWithNoTests": true
@@ -274,7 +599,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/theme"],
+          "outputs": [
+            "coverage/libs/theme"
+          ],
           "options": {
             "jestConfig": "libs/theme/jest.config.js",
             "passWithNoTests": true
@@ -283,7 +610,70 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/theme/src/**/*.ts", "libs/theme/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/theme/src/**/*.ts",
+              "libs/theme/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-button": {
+      "projectType": "library",
+      "root": "libs/ui-button",
+      "sourceRoot": "libs/ui-button/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ui-button"
+          ],
+          "options": {
+            "jestConfig": "libs/ui-button/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-button/src/**/*.ts",
+              "libs/ui-button/src/**/*.html"
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-button/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-button",
+            "config": {
+              "configFolder": "libs/ui-button/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
@@ -296,7 +686,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui-flag"],
+          "outputs": [
+            "coverage/libs/ui-flag"
+          ],
           "options": {
             "jestConfig": "libs/ui-flag/jest.config.js",
             "passWithNoTests": true
@@ -305,7 +697,10 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui-flag/src/**/*.ts", "libs/ui-flag/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/ui-flag/src/**/*.ts",
+              "libs/ui-flag/src/**/*.html"
+            ]
           }
         },
         "storybook": {
@@ -325,7 +720,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-flag",
@@ -349,7 +746,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui-icon-button"],
+          "outputs": [
+            "coverage/libs/ui-icon-button"
+          ],
           "options": {
             "jestConfig": "libs/ui-icon-button/jest.config.js",
             "passWithNoTests": true
@@ -358,7 +757,10 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui-icon-button/src/**/*.ts", "libs/ui-icon-button/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/ui-icon-button/src/**/*.ts",
+              "libs/ui-icon-button/src/**/*.html"
+            ]
           }
         },
         "storybook": {
@@ -378,7 +780,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-icon-button",
@@ -402,7 +806,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui-logo"],
+          "outputs": [
+            "coverage/libs/ui-logo"
+          ],
           "options": {
             "jestConfig": "libs/ui-logo/jest.config.js",
             "passWithNoTests": true
@@ -411,7 +817,10 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui-logo/src/**/*.ts", "libs/ui-logo/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/ui-logo/src/**/*.ts",
+              "libs/ui-logo/src/**/*.html"
+            ]
           }
         },
         "storybook": {
@@ -431,7 +840,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-logo",
@@ -455,7 +866,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui-nav-link"],
+          "outputs": [
+            "coverage/libs/ui-nav-link"
+          ],
           "options": {
             "jestConfig": "libs/ui-nav-link/jest.config.js",
             "passWithNoTests": true
@@ -464,7 +877,10 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui-nav-link/src/**/*.ts", "libs/ui-nav-link/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/ui-nav-link/src/**/*.ts",
+              "libs/ui-nav-link/src/**/*.html"
+            ]
           }
         },
         "storybook": {
@@ -484,7 +900,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-nav-link",
@@ -496,6 +914,33 @@
             "ci": {
               "quiet": true
             }
+          }
+        }
+      }
+    },
+    "ui-tooltip": {
+      "projectType": "library",
+      "root": "libs/ui-tooltip",
+      "sourceRoot": "libs/ui-tooltip/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ui-tooltip"
+          ],
+          "options": {
+            "jestConfig": "libs/ui-tooltip/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-tooltip/src/**/*.ts",
+              "libs/ui-tooltip/src/**/*.html"
+            ]
           }
         }
       }

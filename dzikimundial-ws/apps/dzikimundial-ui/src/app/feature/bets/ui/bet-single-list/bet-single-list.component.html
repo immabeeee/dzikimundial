@@ -1,0 +1,6 @@
+<div class="container" *ngIf="singlesGroupedByDate">
+    <ng-container *ngFor="let groupedSingles of singlesGroupedByDate">
+        <dzikimundial-ws-bet-single-group data-test-id="bet-single-group-list-item" [groupedSingles]="groupedSingles">
+        </dzikimundial-ws-bet-single-group>
+    </ng-container>
+</div>

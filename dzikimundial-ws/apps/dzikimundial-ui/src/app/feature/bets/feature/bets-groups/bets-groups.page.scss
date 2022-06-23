@@ -1,0 +1,11 @@
+.container {
+    .menu-list {
+        height: 100%;
+        display: flex;
+
+        .menu-item {
+            height: 100%;
+            list-style: none;
+        }
+    }
+}

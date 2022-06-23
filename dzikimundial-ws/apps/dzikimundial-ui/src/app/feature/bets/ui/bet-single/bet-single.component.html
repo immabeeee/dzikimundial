@@ -1,0 +1,45 @@
+<div class="single-container" *ngIf="single">
+    <div class="date-container">
+        <p data-test-id="bet-single-date">
+            {{single.date | date: "shortTime"}}
+        </p>
+    </div>
+    <form class="bet-form-container" [formGroup]="singleFormGroup">
+        <div class="home-team-container">
+            <dzikimundial-ws-team-info data-test-id="bet-single-team-home-info" [team]="single.homeTeam">
+            </dzikimundial-ws-team-info>
+            <input data-test-id="bet-single-team-home-goals" [formControl]="homeGoals" maxlength="2" placeholder="0"
+                [ngClass]="{
+                filled: homeGoals?.value,
+                error: (homeGoals?.touched || homeGoals?.dirty) && homeGoals?.errors
+              }">
+        </div>
+        :
+        <div class="away-team-container">
+            <input data-test-id="bet-single-team-away-goals" [formControl]="awayGoals" maxlength="2" placeholder="0"
+                [ngClass]="{
+                filled: awayGoals?.value,
+                error: (awayGoals?.touched || awayGoals?.dirty) && awayGoals?.errors
+              }">
+            <dzikimundial-ws-team-info data-test-id="bet-single-team-away-info" [team]="single.awayTeam"
+                [isReversed]="true">
+            </dzikimundial-ws-team-info>
+        </div>
+    </form>
+    <div class="menu-container">
+        <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'show your opponent\'s bets'"
+            [icon]="'gg-eye'"></dzikimundial-ws-ui-icon-button>
+        <div class="action-container">
+            <ng-container *ngIf="singleBetsLoading$ | async as singleBetsLoading">
+                <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'save your bet'"
+                    *ngIf="!isSingleBetSaved" [icon]="'gg-lock-unlock'"
+                    [isLoading]="singleBetsLoading.includes(single.id)" (click)="saveBet()">
+                </dzikimundial-ws-ui-icon-button>
+                <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'update your bet'"
+                    *ngIf="isSingleBetSaved" [icon]="'gg-lock'" [isLoading]="singleBetsLoading.includes(single.id)"
+                    (click)="saveBet()">
+                </dzikimundial-ws-ui-icon-button>
+            </ng-container>
+        </div>
+    </div>
+</div>

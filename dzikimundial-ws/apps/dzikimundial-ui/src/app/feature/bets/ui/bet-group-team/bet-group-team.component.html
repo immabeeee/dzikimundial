@@ -1,0 +1,10 @@
+<div class="team-container" *ngIf="team">
+    <div class="position" [ngClass]="{'promotion': [0, 1].includes(team.position)}">
+        <p data-test-id="bet-group-team-position">
+            {{team.position}}
+        </p>
+    </div>
+    <div class="team-details">
+        <dzikimundial-ws-team-info [team]="team" [isReversed]="true"></dzikimundial-ws-team-info>
+    </div>
+</div>

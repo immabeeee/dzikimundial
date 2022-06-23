@@ -1,0 +1,12 @@
+<button class="button" [ngClass]="{
+    'disabled': isDisabled
+  }" [disabled]="isDisabled" data-test-id="dm-button">
+    <ng-container *ngIf="isLoading; else iconTempl">
+        <i class="gg-spinner-two"></i>
+    </ng-container>
+    <span>{{text}}</span>
+</button>
+
+<ng-template #iconTempl>
+    <i *ngIf="icon" class="{{icon}}"></i>
+</ng-template>
