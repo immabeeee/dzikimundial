@@ -11,5 +11,8 @@ module.exports = {
     '<rootDir>/libs/pipes/sort-array-by-key',
     '<rootDir>/libs/ui-button',
     '<rootDir>/libs/ui-tooltip',
+    '<rootDir>/apps/dzikimundial-shell-ui',
+    '<rootDir>/apps/dzikimundial-admin-ui',
+    '<rootDir>/libs/services/notifications',
   ],
 }

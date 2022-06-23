@@ -27,10 +27,12 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^12.2.1",
     "@angular/animations": "^12.0.0",
     "@angular/cdk": "^12.0.0",
     "@angular/common": "^12.0.0",
@@ -46,10 +48,12 @@
     "@nrwl/angular": "12.5.7",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
+    "ngx-build-plus": "^12.0.0",
     "ngx-toastr": "^14.3.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "windowed-observable": "^1.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

@@ -18,6 +18,7 @@
       "@dzikimundial-ws/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@dzikimundial-ws/assets": ["libs/assets/src/index.ts"],
       "@dzikimundial-ws/pipes/sort-array-by-key": ["libs/pipes/sort-array-by-key/src/index.ts"],
+      "@dzikimundial-ws/services/notifications": ["libs/services/notifications/src/index.ts"],
       "@dzikimundial-ws/theme": ["libs/theme/src/index.ts"],
       "@dzikimundial-ws/ui-button": ["libs/ui-button/src/index.ts"],
       "@dzikimundial-ws/ui-flag": ["libs/ui-flag/src/index.ts"],
