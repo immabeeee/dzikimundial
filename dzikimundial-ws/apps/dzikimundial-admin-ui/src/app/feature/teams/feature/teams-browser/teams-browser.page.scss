@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100%;
+    width: 100%;
+
+    .sidebar-conatiner {
+        height: 100%;
+        width: 100%;
+        border-right: 1px solid var(--grey-100);
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+
+            .menu-item{
+                height: 80px;
+            }
+        }
+    }
+
+    .scroll-container {
+        overflow: auto;
+        max-height: 100vh;
+        border-bottom: 1px solid var(--grey-100);
+    }
+
+    .action-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 20px 20px;
+        background-color: var(--grey-100) !important;
+        border-bottom: 1px solid var(--grey-100);
+    }
+}

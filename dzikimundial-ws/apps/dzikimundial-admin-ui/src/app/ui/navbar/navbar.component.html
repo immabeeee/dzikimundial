@@ -1,0 +1,35 @@
+<nav class="nav-container">
+    <div class="logo-container">
+        <dzikimundial-ws-ui-logo data-test-id="nav-logo"></dzikimundial-ws-ui-logo>
+    </div>
+    <div class="menu-container">
+        <ul class="menu-list" data-test-id="nav-menu-list">
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-teams" [text]="ROUTER_LINK.TEAMS"
+                    [link]="ROUTER_LINK.TEAMS">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-players" [text]="ROUTER_LINK.PLAYERS"
+                    [link]="ROUTER_LINK.PLAYERS">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-tournaments" [text]="ROUTER_LINK.TOURNAMENTS"
+                    [link]="ROUTER_LINK.TOURNAMENTS">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-users" [text]="ROUTER_LINK.USERS"
+                    [link]="ROUTER_LINK.USERS">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+        </ul>
+    </div>
+    <div class="user-container">
+        <p>Łukasz</p>
+        <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'logout'" [icon]="'gg-log-off'"
+            (click)="handleLougout()">
+        </dzikimundial-ws-ui-icon-button>
+    </div>
+</nav>

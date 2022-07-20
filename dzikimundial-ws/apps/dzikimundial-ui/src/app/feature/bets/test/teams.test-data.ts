@@ -1,4 +1,4 @@
-import { BetGroupTeam, TeamName } from '../models/bets-groups/bets-group.model'
+import { BetGroupTeam, TeamName } from '@dzikimundial-ws/api-interfaces'
 
 export const findTeam = (teamName: TeamName): BetGroupTeam =>
   teams.find((team: BetGroupTeam) => team.name === teamName) as BetGroupTeam

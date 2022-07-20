@@ -1,5 +1,5 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { UiLogoComponent } from './ui-logo.component';
+import { moduleMetadata, Story, Meta } from '@storybook/angular'
+import { UiLogoComponent } from './ui-logo.component'
 
 export default {
   title: 'UiLogoComponent',
@@ -7,16 +7,16 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [],
-    })
+    }),
   ],
-} as Meta<UiLogoComponent>;
+} as Meta<UiLogoComponent>
 
 const Template: Story<UiLogoComponent> = (args: UiLogoComponent) => ({
   component: UiLogoComponent,
   props: args,
-});
+})
 
-
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
+  isBig: false,
 }

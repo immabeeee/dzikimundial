@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar.component';
 import { UiNavLinkModule } from '@dzikimundial-ws/ui-nav-link';
 import { UiLogoModule } from '@dzikimundial-ws/ui-logo';
 import { RouterModule } from '@angular/router';
+import { UiIconButtonModule } from '@dzikimundial-ws/ui-icon-button';
 
 @NgModule({
     declarations: [NavbarComponent],
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
         CommonModule,
         UiNavLinkModule,
         UiLogoModule,
-        RouterModule
+        RouterModule,
+        UiIconButtonModule
     ],
     exports: [NavbarComponent],
 })

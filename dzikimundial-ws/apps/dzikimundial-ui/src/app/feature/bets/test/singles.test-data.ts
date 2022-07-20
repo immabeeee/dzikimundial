@@ -1,4 +1,4 @@
-import { TeamName } from '../models/bets-groups/bets-group.model'
+import { TeamName } from '@dzikimundial-ws/api-interfaces'
 import { BetSingle, BetSinglesGroupedByDate } from '../models/bets-single/bets-single.model'
 import * as TeamsTestData from './teams.test-data'
 

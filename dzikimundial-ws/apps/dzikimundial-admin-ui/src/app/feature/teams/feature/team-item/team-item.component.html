@@ -1,0 +1,11 @@
+<div class="single-container" *ngIf="team">
+    <div class="date-container">
+        <p data-test-id="team-info">
+            <dzikimundial-ws-ui-team-info [team]="team" [isReversed]="true"></dzikimundial-ws-ui-team-info>
+        </p>
+    </div>
+    <div class="menu-container">
+        <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'show team\'s players'"
+            [icon]="'gg-eye'"></dzikimundial-ws-ui-icon-button>
+    </div>
+</div>

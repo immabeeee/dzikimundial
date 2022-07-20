@@ -1,9 +1,15 @@
 .logo-container {
-    padding-left: 100px;
+    position: relative;
+
     p {
         position: relative;
         font-weight: var(--font-700);
         color: var(--white-100);
+
+        &.big {
+            font-size: var(--font-xxl);
+            font-weight: var(--font-700);
+        }
 
         span {
             display: block;
@@ -11,7 +17,7 @@
             height: 100%;
             width: 12px;
             background: var(--blue-100);
-           
+
             opacity: 1;
             -webkit-transform: rotate(0deg);
             -moz-transform: rotate(0deg);
@@ -26,14 +32,13 @@
 }
 
 span:nth-child(1) {
-    left: -20px;
+    right: -35px;
     border-radius: 10px;
     border-bottom-right-radius: 0;
-    
 }
 
 span:nth-child(2) {
-    left: -35px;
+    right: -20px;
     border-radius: 10px;
     border-top-left-radius: 0;
 }

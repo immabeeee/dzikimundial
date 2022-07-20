@@ -14,5 +14,8 @@ module.exports = {
     '<rootDir>/apps/dzikimundial-shell-ui',
     '<rootDir>/apps/dzikimundial-admin-ui',
     '<rootDir>/libs/services/notifications',
+    '<rootDir>/libs/auth',
+    '<rootDir>/libs/ui-team-info',
+    '<rootDir>/libs/ui-input',
   ],
 }

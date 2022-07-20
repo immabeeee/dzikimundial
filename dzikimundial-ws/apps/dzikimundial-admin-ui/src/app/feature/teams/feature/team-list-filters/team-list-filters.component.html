@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup">
+<div class="container">
+    <div class="grid">
+        <dzikimundial-ws-ui-input formControlName="name" [label]="'Nazwa drużyny'" [id]="'name'" [type]="'text'" [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
+        <dzikimundial-ws-ui-input formControlName="team" [label]="'Nazwa team'" [id]="'team'" [type]="'text'" [placeholder]="'eg. Poland'" [description]="'You can provide more than 1 team'"></dzikimundial-ws-ui-input>
+    </div>
+</div>
+</form>

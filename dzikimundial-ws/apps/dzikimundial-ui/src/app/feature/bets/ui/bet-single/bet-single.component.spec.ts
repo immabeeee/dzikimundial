@@ -56,7 +56,7 @@ describe('BetSingleComponent', () => {
     fixture.detectChanges()
 
     const teamInfoContainer: HTMLElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-team-info[data-test-id="bet-single-team-home-info"]'),
+      By.css('dzikimundial-ws-ui-team-info[data-test-id="bet-single-team-home-info"]'),
     ).nativeElement
 
     // when
@@ -72,7 +72,7 @@ describe('BetSingleComponent', () => {
     fixture.detectChanges()
 
     const teamInfoContainer: HTMLElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-team-info[data-test-id="bet-single-team-away-info"]'),
+      By.css('dzikimundial-ws-ui-team-info[data-test-id="bet-single-team-away-info"]'),
     ).nativeElement
 
     // when

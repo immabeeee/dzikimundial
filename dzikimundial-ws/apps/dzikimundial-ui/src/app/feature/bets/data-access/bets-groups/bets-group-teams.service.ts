@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { BetGroupTeam } from '../../models/bets-groups/bets-group.model'
+import { BetGroupTeam } from '@dzikimundial-ws/api-interfaces'
 
 @Injectable()
 export class BetsGroupTeamsService {

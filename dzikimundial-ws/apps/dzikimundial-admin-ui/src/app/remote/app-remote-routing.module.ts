@@ -9,12 +9,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'users',
-        pathMatch: 'full'
+        redirectTo: 'teams',
+        pathMatch: 'full',
       },
       {
-        path: 'users',
-        loadChildren: () => import('../feature/users/feature/users/users.module').then((module) => module.UsersModule),
+        path: 'teams',
+        loadChildren: () => import('../feature/teams/feature/teams-shell/teams-shell.module').then((module) => module.TeamsShellModule),
       },
     ],
   },

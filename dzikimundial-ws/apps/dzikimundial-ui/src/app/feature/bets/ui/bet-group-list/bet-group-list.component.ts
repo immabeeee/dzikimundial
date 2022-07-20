@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { BetGroup } from '../../models/bets-groups/bets-group.model'
+import { BetGroup } from '@dzikimundial-ws/api-interfaces'
 
 @Component({
   selector: 'dzikimundial-ws-bet-group-list',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { Observable } from 'rxjs'
 import { BetsGroupsService } from '../../data-access/bets-groups/bets-groups.service'
-import { BetGroup } from '../../models/bets-groups/bets-group.model'
+import { BetGroup } from '@dzikimundial-ws/api-interfaces'
 
 @Component({
   selector: 'dzikimundial-ws-bets-groups',

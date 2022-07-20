@@ -1,0 +1,5 @@
+<div class="container">
+    <label *ngIf="label">{{label}}<span class="required" *ngIf="isRequired">*</span></label>
+    <input placeholder="{{placeholder}}" type="{{type}}" [value]="value" [disabled]="disabled" (input)="onChange($any($event.target).value)" (blur)="onTouched()" />
+    <small class="description" *ngIf="description">{{description}}</small>
+</div>

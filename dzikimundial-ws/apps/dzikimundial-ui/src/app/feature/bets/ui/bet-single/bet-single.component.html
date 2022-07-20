@@ -6,8 +6,8 @@
     </div>
     <form class="bet-form-container" [formGroup]="singleFormGroup">
         <div class="home-team-container">
-            <dzikimundial-ws-team-info data-test-id="bet-single-team-home-info" [team]="single.homeTeam">
-            </dzikimundial-ws-team-info>
+            <dzikimundial-ws-ui-team-info data-test-id="bet-single-team-home-info" [team]="single.homeTeam">
+            </dzikimundial-ws-ui-team-info>
             <input data-test-id="bet-single-team-home-goals" [formControl]="homeGoals" maxlength="2" placeholder="0"
                 [ngClass]="{
                 filled: homeGoals?.value,
@@ -21,9 +21,9 @@
                 filled: awayGoals?.value,
                 error: (awayGoals?.touched || awayGoals?.dirty) && awayGoals?.errors
               }">
-            <dzikimundial-ws-team-info data-test-id="bet-single-team-away-info" [team]="single.awayTeam"
+            <dzikimundial-ws-ui-team-info data-test-id="bet-single-team-away-info" [team]="single.awayTeam"
                 [isReversed]="true">
-            </dzikimundial-ws-team-info>
+            </dzikimundial-ws-ui-team-info>
         </div>
     </form>
     <div class="menu-container">

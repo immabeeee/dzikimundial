@@ -1,5 +1,6 @@
 <button class="button" [ngClass]="{
-    'disabled': isDisabled
+    'disabled': isDisabled,
+    'fullWidth': isFullWidth
   }" [disabled]="isDisabled" data-test-id="dm-button">
     <ng-container *ngIf="isLoading; else iconTempl">
         <i class="gg-spinner-two"></i>

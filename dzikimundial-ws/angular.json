@@ -8,16 +8,12 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -42,16 +38,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -67,9 +59,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/api-interfaces/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
           }
         }
       }
@@ -82,9 +72,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/assets"
-          ],
+          "outputs": ["coverage/libs/assets"],
           "options": {
             "jestConfig": "libs/assets/jest.config.js",
             "passWithNoTests": true
@@ -93,10 +81,29 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/assets/src/**/*.ts",
-              "libs/assets/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/assets/src/**/*.ts", "libs/assets/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "auth": {
+      "projectType": "library",
+      "root": "libs/auth",
+      "sourceRoot": "libs/auth/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/auth"],
+          "options": {
+            "jestConfig": "libs/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/auth/src/**/*.ts", "libs/auth/src/**/*.html"]
           }
         }
       }
@@ -109,9 +116,7 @@
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/dzikimundial-admin-ui",
             "index": "apps/dzikimundial-admin-ui/src/index.html",
@@ -198,17 +203,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dzikimundial-admin-ui/src/**/*.ts",
-              "apps/dzikimundial-admin-ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/dzikimundial-admin-ui/src/**/*.ts", "apps/dzikimundial-admin-ui/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/dzikimundial-admin-ui"
-          ],
+          "outputs": ["coverage/apps/dzikimundial-admin-ui"],
           "options": {
             "jestConfig": "apps/dzikimundial-admin-ui/jest.config.js",
             "passWithNoTests": true
@@ -237,9 +237,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dzikimundial-admin-ui-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/dzikimundial-admin-ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -252,9 +250,7 @@
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/dzikimundial-shell-ui",
             "index": "apps/dzikimundial-shell-ui/src/index.html",
@@ -340,17 +336,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dzikimundial-shell-ui/src/**/*.ts",
-              "apps/dzikimundial-shell-ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/dzikimundial-shell-ui/src/**/*.ts", "apps/dzikimundial-shell-ui/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/dzikimundial-shell-ui"
-          ],
+          "outputs": ["coverage/apps/dzikimundial-shell-ui"],
           "options": {
             "jestConfig": "apps/dzikimundial-shell-ui/jest.config.js",
             "passWithNoTests": true,
@@ -380,9 +371,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dzikimundial-shell-ui-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/dzikimundial-shell-ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -395,9 +384,7 @@
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/dzikimundial-ui",
             "index": "apps/dzikimundial-ui/src/index.html",
@@ -484,17 +471,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dzikimundial-ui/src/**/*.ts",
-              "apps/dzikimundial-ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/dzikimundial-ui/src/**/*.ts", "apps/dzikimundial-ui/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/dzikimundial-ui"
-          ],
+          "outputs": ["coverage/apps/dzikimundial-ui"],
           "options": {
             "jestConfig": "apps/dzikimundial-ui/jest.config.js",
             "passWithNoTests": true,
@@ -518,9 +500,7 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/dzikimundial-ui",
@@ -557,9 +537,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dzikimundial-ui-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/dzikimundial-ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -572,9 +550,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/pipes/sort-array-by-key"
-          ],
+          "outputs": ["coverage/libs/pipes/sort-array-by-key"],
           "options": {
             "jestConfig": "libs/pipes/sort-array-by-key/jest.config.js",
             "passWithNoTests": true
@@ -599,9 +575,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/theme"
-          ],
+          "outputs": ["coverage/libs/theme"],
           "options": {
             "jestConfig": "libs/theme/jest.config.js",
             "passWithNoTests": true
@@ -610,10 +584,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/theme/src/**/*.ts",
-              "libs/theme/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/theme/src/**/*.ts", "libs/theme/src/**/*.html"]
           }
         }
       }
@@ -626,9 +597,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-button"
-          ],
+          "outputs": ["coverage/libs/ui-button"],
           "options": {
             "jestConfig": "libs/ui-button/jest.config.js",
             "passWithNoTests": true
@@ -637,10 +606,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui-button/src/**/*.ts",
-              "libs/ui-button/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui-button/src/**/*.ts", "libs/ui-button/src/**/*.html"]
           }
         },
         "storybook": {
@@ -660,9 +626,7 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-button",
@@ -686,9 +650,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-flag"
-          ],
+          "outputs": ["coverage/libs/ui-flag"],
           "options": {
             "jestConfig": "libs/ui-flag/jest.config.js",
             "passWithNoTests": true
@@ -697,10 +659,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui-flag/src/**/*.ts",
-              "libs/ui-flag/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui-flag/src/**/*.ts", "libs/ui-flag/src/**/*.html"]
           }
         },
         "storybook": {
@@ -720,9 +679,7 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-flag",
@@ -746,9 +703,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-icon-button"
-          ],
+          "outputs": ["coverage/libs/ui-icon-button"],
           "options": {
             "jestConfig": "libs/ui-icon-button/jest.config.js",
             "passWithNoTests": true
@@ -757,10 +712,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui-icon-button/src/**/*.ts",
-              "libs/ui-icon-button/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui-icon-button/src/**/*.ts", "libs/ui-icon-button/src/**/*.html"]
           }
         },
         "storybook": {
@@ -780,14 +732,65 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-icon-button",
             "config": {
               "configFolder": "libs/ui-icon-button/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "ui-input": {
+      "projectType": "library",
+      "root": "libs/ui-input",
+      "sourceRoot": "libs/ui-input/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-input"],
+          "options": {
+            "jestConfig": "libs/ui-input/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-input/src/**/*.ts", "libs/ui-input/src/**/*.html"]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-input/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-input",
+            "config": {
+              "configFolder": "libs/ui-input/.storybook"
             }
           },
           "configurations": {
@@ -806,9 +809,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-logo"
-          ],
+          "outputs": ["coverage/libs/ui-logo"],
           "options": {
             "jestConfig": "libs/ui-logo/jest.config.js",
             "passWithNoTests": true
@@ -817,10 +818,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui-logo/src/**/*.ts",
-              "libs/ui-logo/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui-logo/src/**/*.ts", "libs/ui-logo/src/**/*.html"]
           }
         },
         "storybook": {
@@ -840,9 +838,7 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-logo",
@@ -866,9 +862,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-nav-link"
-          ],
+          "outputs": ["coverage/libs/ui-nav-link"],
           "options": {
             "jestConfig": "libs/ui-nav-link/jest.config.js",
             "passWithNoTests": true
@@ -877,10 +871,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui-nav-link/src/**/*.ts",
-              "libs/ui-nav-link/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui-nav-link/src/**/*.ts", "libs/ui-nav-link/src/**/*.html"]
           }
         },
         "storybook": {
@@ -900,14 +891,65 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/ui-nav-link",
             "config": {
               "configFolder": "libs/ui-nav-link/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "ui-team-info": {
+      "projectType": "library",
+      "root": "libs/ui-team-info",
+      "sourceRoot": "libs/ui-team-info/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-team-info"],
+          "options": {
+            "jestConfig": "libs/ui-team-info/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-team-info/src/**/*.ts", "libs/ui-team-info/src/**/*.html"]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-team-info/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-team-info",
+            "config": {
+              "configFolder": "libs/ui-team-info/.storybook"
             }
           },
           "configurations": {
@@ -926,9 +968,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-tooltip"
-          ],
+          "outputs": ["coverage/libs/ui-tooltip"],
           "options": {
             "jestConfig": "libs/ui-tooltip/jest.config.js",
             "passWithNoTests": true
@@ -937,10 +977,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui-tooltip/src/**/*.ts",
-              "libs/ui-tooltip/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui-tooltip/src/**/*.ts", "libs/ui-tooltip/src/**/*.html"]
           }
         }
       }

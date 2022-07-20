@@ -1,0 +1,85 @@
+.single-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--grey-200);
+    height: 80px;
+    border-bottom: 1px solid var(--grey-100);
+    border-right: 1px solid var(--grey-100);
+    color: var(--white-100);
+    font-weight: var(--font-700);
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.76);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+    .bet-form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        input {
+            background-color: var(--black-100);
+            border: 1px solid var(--grey-400);
+            font-size: var(--font-l);
+            font-weight: var(--font-700);
+            color: var(--white-100);
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            outline: var(--blue-100);
+
+            &.filled,
+            &:active,
+            &:focus {
+                border: 1px solid var(--blue-100);
+                color: var(--blue-100);
+            }
+
+            &.error {
+                border: 1px solid var(--red-100);
+                color: var(--red-100);
+            }
+        }
+
+        .away-team-container,
+        .home-team-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        .home-team-container {
+            justify-content: flex-start;
+        }
+
+        .away-team-container {
+            justify-content: flex-end;
+        }
+
+    }
+
+    .bet-details-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    dzikimundial-ws-ui-team-info {
+        width: 130px !important;
+    }
+}

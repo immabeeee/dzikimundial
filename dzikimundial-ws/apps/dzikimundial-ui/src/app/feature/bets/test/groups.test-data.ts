@@ -1,4 +1,4 @@
-import { BetGroup } from "../models/bets-groups/bets-group.model";
+import { BetGroup } from '@dzikimundial-ws/api-interfaces'
 import * as teamsTestData from './teams.test-data';
 
 export const groups: BetGroup[] = [

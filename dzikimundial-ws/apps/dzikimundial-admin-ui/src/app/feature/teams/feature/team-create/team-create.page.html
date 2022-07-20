@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="sidebar-conatiner">
+        <ul class="menu-list">
+            <li class="menu-item">
+                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-single" [text]="ROUTER_LINK.TEAMS"
+                    [isSecondary]="true" [alignText]="'end'" [link]="ROUTER_LINK.PREV_RELATIVE_TO_PARENT">
+                </dzikimundial-ws-ui-nav-link>
+            </li>
+        </ul>
+    </div>
+    <div class="content-container">
+        <div class="header-container">
+            <p>Create new team</p>
+        </div>
+        <div class="form-container">
+            <form [formGroup]="form">
+                <div class="row">
+                    <dzikimundial-ws-ui-input formControlName="name" [label]="'Team name'" [id]="'create-team-name'" [type]="'text'"
+                    [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
+                </div>
+                <div class="row">
+                    <dzikimundial-ws-ui-input formControlName="description" [label]="'Description'" [id]="'create-description'" [type]="'text'"
+                    [placeholder]="'eg. Lorem ipsum dolor'"></dzikimundial-ws-ui-input>
+                </div>
+                <div class="row">
+                    <dzikimundial-ws-ui-input formControlName="logo" [label]="'Logo url'" [id]="'create-team-logo-url'" [type]="'text'"
+                    [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
+                </div>
+                <div class="action-container">
+                    <dzikimundial-ws-ui-button [text]="'Save'"></dzikimundial-ws-ui-button>
+                </div>
+            </form>
+        </div>
+        <div class="preview-container">
+            <div class="header-container">
+                <p>Team preview</p>
+            </div>
+            <dzikimundial-ws-admin-team-item [team]="previewTeam"></dzikimundial-ws-admin-team-item>
+        </div>
+    </div>
+</div>

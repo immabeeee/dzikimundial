@@ -1,0 +1,39 @@
+<section class="wrapper">
+    <div class="logo-wrapper">
+        <dzikimundial-ws-ui-logo data-test-id="logo" [isBig]="true"></dzikimundial-ws-ui-logo>
+    </div>
+    <div class="form-wrapper">
+        <form [formGroup]="form">
+            <fieldset class="fieldset">
+                <div class="fieldset-item" [ngClass]="{
+                        'error': form?.get('login')?.errors && form?.get('login')?.touched
+                      }">
+                    <input placeholder="login" type="login" formControlName="login" name="login">
+                    <div class="fieldset-item-error" *ngIf="form?.get('login')?.errors && form?.get('login')?.touched">
+                        <ng-container *ngIf="form?.get('login')?.errors?.required">
+                            Please provide a login.
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="fieldset-item" [ngClass]="{
+                        'error': form?.get('password')?.errors && form?.get('password')?.touched
+                      }">
+                    <input placeholder="password" type="password" formControlName="password" name="password">
+                    <div class="fieldset-item-error"
+                        *ngIf="form?.get('password')?.errors && form?.get('password')?.touched">
+                        <ng-container *ngIf="form?.get('password')?.errors?.required">
+                            Please provide a password.
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="fieldset-item">
+                    <div class="buttons-container">
+                        <dzikimundial-ws-ui-button type="submit" (click)="onSubmit()" [text]="'login'"
+                            [isFullWidth]="true" [isLoading]="isAuthLoading">
+                        </dzikimundial-ws-ui-button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
