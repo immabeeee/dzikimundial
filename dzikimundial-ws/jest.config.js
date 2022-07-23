@@ -17,5 +17,7 @@ module.exports = {
     '<rootDir>/libs/auth',
     '<rootDir>/libs/ui-team-info',
     '<rootDir>/libs/ui-input',
+    '<rootDir>/libs/utils',
+    '<rootDir>/apps/api-e2e',
   ],
 }

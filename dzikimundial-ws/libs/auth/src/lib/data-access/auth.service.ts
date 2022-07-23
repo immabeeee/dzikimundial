@@ -27,6 +27,10 @@ export class AuthService {
     )
   }
 
+  get token(): string {
+    return this.jwtService.getToken()
+  }
+
   public signIn({ login, password }: any): Observable<any> {
     const request: any = {
       login,

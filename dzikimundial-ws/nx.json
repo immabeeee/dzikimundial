@@ -30,6 +30,9 @@
     "api": {
       "tags": []
     },
+    "api-e2e": {
+      "tags": []
+    },
     "api-interfaces": {
       "tags": []
     },
@@ -88,6 +91,9 @@
       "tags": []
     },
     "ui-tooltip": {
+      "tags": []
+    },
+    "utils": {
       "tags": []
     }
   }

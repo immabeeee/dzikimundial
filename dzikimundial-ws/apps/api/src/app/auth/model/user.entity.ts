@@ -1,10 +1,10 @@
+import { Role } from '@dzikimundial-ws/api-interfaces'
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
-import { Role } from './user.model'
 
 @Entity('user')
 export class UserEntity {
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn("uuid")
+  id: string
 
   @Column({ unique: true })
   login: string

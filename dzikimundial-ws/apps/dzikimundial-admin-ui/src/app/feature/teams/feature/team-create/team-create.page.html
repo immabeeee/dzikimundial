@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="createTeamView$ | async as view">
     <div class="sidebar-conatiner">
         <ul class="menu-list">
             <li class="menu-item">
@@ -13,21 +13,24 @@
             <p>Create new team</p>
         </div>
         <div class="form-container">
+            <p *ngIf="view.isLoading">LOADING</p>
             <form [formGroup]="form">
                 <div class="row">
-                    <dzikimundial-ws-ui-input formControlName="name" [label]="'Team name'" [id]="'create-team-name'" [type]="'text'"
-                    [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
+                    <dzikimundial-ws-ui-input formControlName="name" [label]="'Team name'" [id]="'create-team-name'"
+                        [type]="'text'" [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
                 </div>
                 <div class="row">
-                    <dzikimundial-ws-ui-input formControlName="description" [label]="'Description'" [id]="'create-description'" [type]="'text'"
-                    [placeholder]="'eg. Lorem ipsum dolor'"></dzikimundial-ws-ui-input>
+                    <dzikimundial-ws-ui-input formControlName="description" [label]="'Description'"
+                        [id]="'create-description'" [type]="'text'" [placeholder]="'eg. Lorem ipsum dolor'">
+                    </dzikimundial-ws-ui-input>
                 </div>
                 <div class="row">
-                    <dzikimundial-ws-ui-input formControlName="logo" [label]="'Logo url'" [id]="'create-team-logo-url'" [type]="'text'"
-                    [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
+                    <dzikimundial-ws-ui-input formControlName="logoUrlImage" [label]="'Logo url'" [id]="'create-team-logo-url'"
+                        [type]="'text'" [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
                 </div>
                 <div class="action-container">
-                    <dzikimundial-ws-ui-button [text]="'Save'"></dzikimundial-ws-ui-button>
+                    <dzikimundial-ws-ui-button [text]="'Save'" (click)="handleCreateTeam($event)" [isDisabled]="view.isLoading">
+                    </dzikimundial-ws-ui-button>
                 </div>
             </form>
         </div>

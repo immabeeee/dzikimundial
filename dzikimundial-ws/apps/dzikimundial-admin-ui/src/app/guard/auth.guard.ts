@@ -8,7 +8,6 @@ export class AuthGuard implements CanLoad, CanActivate {
   constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   canLoad(): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    console.log('activatedRoute: ', this.activatedRoute)
     return this.authService.isUserLoggedIn.pipe(
       take(1),
       switchMap((isUserLoggedIn: boolean) => {

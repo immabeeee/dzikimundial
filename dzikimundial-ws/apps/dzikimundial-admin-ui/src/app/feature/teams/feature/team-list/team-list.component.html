@@ -1,7 +1,15 @@
 <div class="container">
-    <ng-container *ngIf="teams$ | async as teams">
-        <ng-container *ngFor="let team of teams">
-            <dzikimundial-ws-admin-team-item [team]="team"></dzikimundial-ws-admin-team-item>
+    <ng-container *ngIf="teamsView$ | async as view">
+        <ng-container *ngIf="view.error">
+            {{view.error}}
+        </ng-container>
+        <ng-container *ngIf="view.isLoading">
+            {{view.isLoading}}
+        </ng-container>
+        <ng-container *ngIf="view.teams && view.teams.length > 0">
+            <ng-container *ngFor="let team of view.teams">
+                <dzikimundial-ws-admin-team-item [team]="team"></dzikimundial-ws-admin-team-item>
+            </ng-container>
         </ng-container>
     </ng-container>
 </div>

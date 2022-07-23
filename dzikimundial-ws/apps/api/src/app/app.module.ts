@@ -3,8 +3,9 @@ import { ConfigModule } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AuthModule } from './auth/auth.module'
 import { LoggerModule } from './shared/logger/logger.module'
+import { TeamModule } from './team/team.module'
 
-const apiModules = [AuthModule, LoggerModule]
+const apiModules = [AuthModule, LoggerModule, TeamModule]
 
 @Module({
   imports: [

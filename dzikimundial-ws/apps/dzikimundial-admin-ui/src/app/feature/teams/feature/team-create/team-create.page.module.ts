@@ -8,6 +8,7 @@ import { TeamFormService } from '../../data-access/team-form.service'
 import { ReactiveFormsModule } from '@angular/forms'
 import { TeamItemModule } from '../team-item/team-item.module'
 import { UiButtonModule } from '@dzikimundial-ws/ui-button'
+import { TeamService } from '../../data-access/team.service'
 
 @NgModule({
   declarations: [TeamCreatePageComponent],
@@ -21,6 +22,6 @@ import { UiButtonModule } from '@dzikimundial-ws/ui-button'
     UiButtonModule
   ],
   exports: [],
-  providers: [TeamFormService],
+  providers: [TeamFormService, TeamService],
 })
 export class TeamsBrowserPageModule {}

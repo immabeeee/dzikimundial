@@ -1,8 +1,8 @@
+import { Role, User } from '@dzikimundial-ws/api-interfaces';
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
 import { ROLES_KEY } from '../decorator/roles.decorator';
-import { Role, User } from '../model/user.model';
 
 @Injectable()
 export class RolesGuard implements CanActivate {

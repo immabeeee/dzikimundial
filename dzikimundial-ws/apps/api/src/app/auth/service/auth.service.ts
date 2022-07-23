@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common'
 import { from, Observable } from 'rxjs'
-import { map, switchMap, tap } from 'rxjs/operators'
+import { map, switchMap } from 'rxjs/operators'
 import * as bcrypt from 'bcrypt'
 import { InjectRepository } from '@nestjs/typeorm'
 import { UserEntity } from '../model/user.entity'
-import { Repository } from 'typeorm'
+import { DeleteResult, Repository } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
-import { User } from '../model/user.model'
+import { User } from '@dzikimundial-ws/api-interfaces'
 
 @Injectable()
 export class AuthService {
@@ -49,7 +49,7 @@ export class AuthService {
     )
   }
 
-  findUserById(id: number): Observable<User> {
+  findUserById(id: string): Observable<User> {
     return from(
       this.userRepository.findOne({
         where: [{ id: id }],
@@ -60,6 +60,14 @@ export class AuthService {
         return user
       }),
     )
+  }
+
+  deleteUser(id: string): Observable<DeleteResult> {
+    return from(this.userRepository.delete(id));
+  }
+
+  public hashPassword(password: string): Observable<string> {
+    return from(bcrypt.hash(password, 12)) as Observable<string>
   }
 
   private validateUser(login: string, password: string): Observable<User> {
@@ -80,9 +88,5 @@ export class AuthService {
         )
       }),
     )
-  }
-
-  private hashPassword(password: string): Observable<string> {
-    return from(bcrypt.hash(password, 12)) as Observable<string>
   }
 }
