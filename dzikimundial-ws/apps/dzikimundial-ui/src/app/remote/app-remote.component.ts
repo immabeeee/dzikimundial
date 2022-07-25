@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { RelativeRouterService } from './services/relative-router.service'
+import { changeTheme } from '@dzikimundial-ws/theme'
 
 @Component({
   selector: 'dzikimundial-ws-remote-root',
@@ -7,7 +8,9 @@ import { RelativeRouterService } from './services/relative-router.service'
   styleUrls: ['./app-remote.component.scss'],
 })
 export class AppRemoteComponent {
-  constructor(private relativeRouterService: RelativeRouterService) {}
+  constructor(private relativeRouterService: RelativeRouterService) {
+    changeTheme()
+  }
 
   navigate(path: string): void {
     this.relativeRouterService.navigateTo(path)

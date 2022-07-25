@@ -6,7 +6,13 @@ import { InjectRepository } from '@nestjs/typeorm'
 import { UserEntity } from '../model/user.entity'
 import { DeleteResult, Repository } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
-import { User } from '@dzikimundial-ws/api-interfaces'
+import {
+  CreateUserRequest,
+  CreatUserResponse,
+  LoginUserRequest,
+  LoginUserResponse,
+  User,
+} from '@dzikimundial-ws/api-interfaces'
 
 @Injectable()
 export class AuthService {
@@ -16,8 +22,8 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  registerAccount(user: User): Observable<User> {
-    const { login, email, password, role } = user
+  registerAccount(req: CreateUserRequest): Observable<CreatUserResponse> {
+    const { login, email, password, role } = req
 
     return this.hashPassword(password).pipe(
       switchMap((hashedPassword: string) => {
@@ -38,15 +44,17 @@ export class AuthService {
     )
   }
 
-  login(user: User): Observable<string> {
-    const { login, password } = user
-    return this.validateUser(login, password).pipe(
-      switchMap((user: User) => {
-        if (user) {
-          return from(this.jwtService.signAsync({ user }))
-        }
-      }),
-    )
+  login(req: LoginUserRequest): Observable<LoginUserResponse> {
+    const { login, password } = req
+    return this.validateUser(login, password)
+      .pipe(
+        switchMap((user: User) => {
+          if (user) {
+            return from(this.jwtService.signAsync({ user }))
+          }
+        }),
+      )
+      .pipe(map((jwt: string) => ({ token: jwt })))
   }
 
   findUserById(id: string): Observable<User> {
@@ -63,7 +71,7 @@ export class AuthService {
   }
 
   deleteUser(id: string): Observable<DeleteResult> {
-    return from(this.userRepository.delete(id));
+    return from(this.userRepository.delete(id))
   }
 
   public hashPassword(password: string): Observable<string> {

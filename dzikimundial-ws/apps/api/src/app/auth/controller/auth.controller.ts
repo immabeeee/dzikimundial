@@ -1,9 +1,11 @@
-import { User } from '@dzikimundial-ws/api-interfaces'
+import { CreateUserRequest, LoginUserRequest, LoginUserResponse, User } from '@dzikimundial-ws/api-interfaces'
 import { Body, Controller, Delete, Param, Post } from '@nestjs/common'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { DeleteResult } from 'typeorm'
 import { LoggerService } from '../../shared/logger/service/logger.service'
+import { CreateUserDto } from '../model/dto/create-user.dto.model'
+import { LoginUserDto } from '../model/dto/login-user.dto.model'
 import { AuthService } from '../service/auth.service'
 
 @Controller('auth')
@@ -13,15 +15,15 @@ export class AuthController {
   constructor(private authService: AuthService, private loggerService: LoggerService) {}
 
   @Post('register')
-  register(@Body() user: User): Observable<User> {
-    this.loggerService.log(`${this.apiName} - register new user: ${JSON.stringify(user)}`)
-    return this.authService.registerAccount(user)
+  register(@Body() body: CreateUserDto): Observable<User> {
+    this.loggerService.log(`${this.apiName} - register new user: ${body.login} (${body.email})}`)
+    return this.authService.registerAccount(body)
   }
 
   @Post('login')
-  login(@Body() user: User): Observable<{ token: string }> {
-    this.loggerService.log(`${this.apiName} - login user: ${JSON.stringify(user)}`)
-    return this.authService.login(user).pipe(map((jwt: string) => ({ token: jwt })))
+  login(@Body() body: LoginUserDto): Observable<LoginUserResponse> {
+    this.loggerService.log(`${this.apiName} - login user: ${body.login}`)
+    return this.authService.login(body)
   }
 
   @Delete(':id')

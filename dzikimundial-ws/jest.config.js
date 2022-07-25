@@ -19,5 +19,6 @@ module.exports = {
     '<rootDir>/libs/ui-input',
     '<rootDir>/libs/utils',
     '<rootDir>/apps/api-e2e',
+    '<rootDir>/libs/ui-progress-bar',
   ],
 }

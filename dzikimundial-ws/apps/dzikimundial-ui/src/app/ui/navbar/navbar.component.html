@@ -27,6 +27,9 @@
         </ul>
     </div>
     <div class="user-container">
-        hi
+        <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip
+            [tooltipContent]="currentTheme === 'primary' ? 'light theme' : 'dark theme'"
+            [icon]="currentTheme === 'primary' ? 'gg-sun' : 'gg-moon'" (click)="handleChangeTheme()">
+        </dzikimundial-ws-ui-icon-button>
     </div>
 </nav>

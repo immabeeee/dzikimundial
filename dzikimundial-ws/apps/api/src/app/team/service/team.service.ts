@@ -1,9 +1,19 @@
 import { Injectable } from '@nestjs/common'
-import { from, map, Observable, switchMap } from 'rxjs'
+import { from, map, Observable, switchMap, tap } from 'rxjs'
 import { InjectRepository } from '@nestjs/typeorm'
-import { DeleteResult, Repository } from 'typeorm'
-import { CreateTeamRequest, CreateTeamResponse, GetTeamListResponse, Team, UpdateTeamRequest, UpdateTeamResponse, User } from '@dzikimundial-ws/api-interfaces'
+import { DeleteResult, Like, Repository } from 'typeorm'
+import {
+  CreateTeamResponse,
+  GetTeamListRequest,
+  GetTeamListResponse,
+  GetTeamResponse,
+  Team,
+  UpdateTeamResponse,
+  User,
+} from '@dzikimundial-ws/api-interfaces'
 import { TeamEntity } from '../model/team.entity'
+import { CreateTeamDto } from '../model/dto/create-team.dto.model'
+import { UpdateTeamDto } from '../model/dto/update-team.dto.model'
 
 @Injectable()
 export class TeamService {
@@ -12,51 +22,78 @@ export class TeamService {
     private readonly teamRepository: Repository<TeamEntity>,
   ) {}
 
-  createTeam(req: CreateTeamRequest, user: User): Observable<CreateTeamResponse> {
+  createTeam(req: CreateTeamDto, user: User): Observable<CreateTeamResponse> {
     const team: Team = {
       ...req,
       createdBy: user.id,
       updatedBy: user.id,
     }
-    return from(this.teamRepository.save(team));
+    return from(this.teamRepository.save(team))
   }
 
-  updateTeam(id: string, req: UpdateTeamRequest, user: User): Observable<UpdateTeamResponse> {
+  updateTeam(id: string, req: UpdateTeamDto, user: User): Observable<UpdateTeamResponse> {
     const team: Team = {
       ...req,
       updatedBy: user.id,
     }
 
     return from(this.teamRepository.update(id, team)).pipe(
-      switchMap(()=>{
-        return from(this.teamRepository.findOne({
-          where: [{ id: id }],
-          select: ['id', 'createdAt', 'createdBy', 'updatedBy', 'updatedAt', 'name', 'description', 'logo'],
-        }))
-      })
+      switchMap(() => {
+        return from(
+          this.teamRepository.findOne({
+            where: [{ id: id }],
+            select: ['id', 'createdAt', 'createdBy', 'updatedBy', 'updatedAt', 'name', 'description', 'logo'],
+          }),
+        )
+      }),
     )
   }
 
   deleteTeam(id: string): Observable<DeleteResult> {
-    return from(this.teamRepository.delete(id));
+    return from(this.teamRepository.delete(id))
   }
 
-  findTeams(pageNumber: number, pageSize: number): Observable<GetTeamListResponse>{
-    const skip = pageNumber * pageSize;
+  findTeams(req: GetTeamListRequest): Observable<GetTeamListResponse> {
+    const { pageNumber, pageSize, filters, sort } = req
+    const skip = pageNumber * pageSize
+
+    const whereQuery =
+      filters &&
+      filters.length > 0 &&
+      filters.map((filter) => {
+        return {
+          [`${filter.name}`]: Like(`%${filter.value}%`),
+        }
+      })
+
+    const orderQuery = sort && sort.orderBy && sort.sortBy ? { [`${sort.orderBy}`]: sort.sortBy } : {}
+
     return from(
-              this.teamRepository
-                .createQueryBuilder('team')
-                .take(pageSize)
-                .skip(skip)
-                .getMany()
-            ).pipe(
-              map((teams: Team[]) => {
-                return {
-                  teams,
-                  pageNumber,
-                  pageSize
-                };
-              })
-            );
+      this.teamRepository.find({
+        where: whereQuery,
+        order: orderQuery,
+        take: pageSize,
+        skip: skip,
+      }),
+    ).pipe(
+      map((teams: Team[]) => {
+        return {
+          teams,
+          pageNumber,
+          pageSize,
+          filters,
+          sort,
+        }
+      }),
+    )
+  }
+
+  findTeam(id: string): Observable<GetTeamResponse> {
+    return from(
+      this.teamRepository.findOne({
+        where: [{ id: id }],
+        select: ['id', 'createdAt', 'createdBy', 'updatedBy', 'updatedAt', 'name', 'description', 'logo'],
+      }),
+    )
   }
 }

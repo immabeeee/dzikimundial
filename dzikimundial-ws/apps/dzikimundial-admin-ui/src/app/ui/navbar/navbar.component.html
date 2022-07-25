@@ -28,6 +28,10 @@
     </div>
     <div class="user-container">
         <p>Łukasz</p>
+        <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip
+            [tooltipContent]="currentTheme === 'primary' ? 'light theme' : 'dark theme'"
+            [icon]="currentTheme === 'primary' ? 'gg-sun' : 'gg-moon'" (click)="handleChangeTheme()">
+        </dzikimundial-ws-ui-icon-button>
         <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'logout'" [icon]="'gg-log-off'"
             (click)="handleLougout()">
         </dzikimundial-ws-ui-icon-button>

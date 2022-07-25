@@ -11,7 +11,7 @@
     font-weight: var(--font-700);
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.76);
+        background-color: var(--grey-250);
         transition: 0.5s;
         cursor: pointer;
     }

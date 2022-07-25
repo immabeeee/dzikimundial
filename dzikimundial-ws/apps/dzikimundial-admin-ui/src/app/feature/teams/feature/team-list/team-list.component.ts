@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { generateDefaultListQuery } from '@dzikimundial-ws/api-interfaces'
 import { Observable } from 'rxjs'
 import { TeamsStateFacade } from '../../data-access/state/teams-state.facade'
 import { TeamListView } from '../../data-access/state/teams-state.models'
@@ -10,9 +11,9 @@ import { TeamsService } from '../../data-access/teams.service'
   styleUrls: ['./team-list.component.scss'],
 })
 export class TeamListComponent {
-  public teamsView$: Observable<TeamListView> = this.teamsStateFacade.teamListView$;
+  public teamsView$: Observable<TeamListView> = this.teamsStateFacade.teamListView$
 
   constructor(private teamsService: TeamsService, private teamsStateFacade: TeamsStateFacade) {
-    this.teamsService.fetchTeams(0, 1000)
+    this.teamsService.fetchTeams(generateDefaultListQuery())
   }
 }

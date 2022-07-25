@@ -14,9 +14,7 @@ import { TeamService } from '../../data-access/team.service'
   styleUrls: ['./team-create.page.scss'],
 })
 export class TeamCreatePageComponent implements OnInit {
-  public createTeamView$: Observable<CreateTeamView> = this.teamsStateFacade.createTeamView$.pipe(
-    tap((e) => console.log(e)),
-  )
+  public createTeamView$: Observable<CreateTeamView> = this.teamsStateFacade.createTeamView$
 
   public readonly ROUTER_LINK: typeof ROUTER_LINK = ROUTER_LINK
   public form!: FormGroup
@@ -35,14 +33,12 @@ export class TeamCreatePageComponent implements OnInit {
     this.form = this.teamFormService.createEmptyTeamForm()
   }
 
-  public handleCreateTeam(event: MouseEvent): void {
-    event.stopPropagation();
-    event.preventDefault();
+  public handleCreateTeam(): void {
     const req = this.form.getRawValue()
     this.teamService.createTeam({
       logo: req.logoUrlImage,
       description: req.description,
-      name: req.name
+      name: req.name,
     })
   }
 }

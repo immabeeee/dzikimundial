@@ -12,7 +12,7 @@
     font-weight: var(--font-700);
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.76);
+        background-color: var(--grey-250);
         transition: 0.5s;
         cursor: pointer;
     }
@@ -25,7 +25,7 @@
 
         input {
             background-color: var(--black-100);
-            border: 1px solid var(--grey-400);
+            border: 1px solid var(--grey-200);
             font-size: var(--font-l);
             font-weight: var(--font-700);
             color: var(--white-100);

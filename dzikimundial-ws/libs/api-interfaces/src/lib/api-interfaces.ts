@@ -4,5 +4,10 @@ export interface Message {
 
 export enum SortDirection {
   DESC = 'DESC',
-  ASC = 'ASC'
-};
+  ASC = 'ASC',
+}
+
+export interface DeleteResult {
+  raw: any
+  affected?: number | null
+}

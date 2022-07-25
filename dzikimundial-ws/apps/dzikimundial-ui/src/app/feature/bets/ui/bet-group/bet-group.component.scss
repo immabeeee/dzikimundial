@@ -1,6 +1,5 @@
 .group-item-container {
     width: 100%;
-    border: 1px solid var(--grey-100);
 
     .action-container,
     .header-container {
@@ -46,7 +45,7 @@ dzikimundial-ws-bet-group-team {
     font-weight: var(--font-700);
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.76);
+        background-color: var(--grey-250);
         transition: 0.5s;
         cursor: pointer;
     }

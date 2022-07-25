@@ -5,6 +5,7 @@ import { UiNavLinkModule } from '@dzikimundial-ws/ui-nav-link';
 import { UiLogoModule } from '@dzikimundial-ws/ui-logo';
 import { RouterModule } from '@angular/router';
 import { UiIconButtonModule } from '@dzikimundial-ws/ui-icon-button';
+import { UiTooltipModule } from '@dzikimundial-ws/ui-tooltip';
 
 @NgModule({
     declarations: [NavbarComponent],
@@ -13,6 +14,7 @@ import { UiIconButtonModule } from '@dzikimundial-ws/ui-icon-button';
         UiNavLinkModule,
         UiLogoModule,
         RouterModule,
+        UiTooltipModule,
         UiIconButtonModule
     ],
     exports: [NavbarComponent],

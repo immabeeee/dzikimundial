@@ -24,4 +24,4 @@ import { TeamService } from '../../data-access/team.service'
   exports: [],
   providers: [TeamFormService, TeamService],
 })
-export class TeamsBrowserPageModule {}
+export class TeamCreatePageModule {}

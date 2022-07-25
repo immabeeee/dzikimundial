@@ -52,7 +52,6 @@ export class UiInputComponent implements ControlValueAccessor, Validator, OnInit
   }
 
   validate(control: AbstractControl): ValidationErrors | null {
-    console.log("control: ", control)
     return null;
   }
 

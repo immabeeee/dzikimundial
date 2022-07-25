@@ -3,8 +3,8 @@
     border-radius: 50%;
     cursor: pointer;
     border: 0;
-    background: #0000007d;
-    color: #fff;
+    background-color: transparent;
+    color: var(--white-100);
 
     .icon-container {
         display: flex;
@@ -12,14 +12,10 @@
         align-items: center;
         width: 20px;
         height: 20px;
-
-        i {
-            transform: scale(0.9);
-        }
     }
 
     &:hover {
-        background-color: var(--black-100);
+        background: #0000001e;
         transition: 0.2s;
         animation: primary 2s infinite forwards ease-in-out;
     }

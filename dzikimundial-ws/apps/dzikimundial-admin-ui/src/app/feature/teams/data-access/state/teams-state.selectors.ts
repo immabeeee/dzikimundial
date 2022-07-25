@@ -1,5 +1,12 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { CreateTeamView, TeamListView, TeamsStateEntity } from './teams-state.models'
+import {
+  CreateTeamView,
+  RemoveTeamsView,
+  TeamListView,
+  TeamsStateEntity,
+  TeamView,
+  UpdateTeamView,
+} from './teams-state.models'
 import { TEAMS_STATE_FEATURE_KEY, State, teamsStateAdapter } from './teams-state.reducer'
 
 // Lookup the 'TeamsState' feature state managed by NgRx
@@ -28,10 +35,9 @@ export const getTeamListView = createSelector<TeamsStateEntity, State, TeamListV
       teams: state.teams,
       isLoading: state.teamsLoading,
       error: state.teamsError,
-      pageNumber: state.pageNumber,
-      pageSize: state.pageSize,
+      listQuery: state.teamsListQuery,
     }
-  }
+  },
 )
 
 export const getCreateTeamView = createSelector<TeamsStateEntity, State, CreateTeamView>(
@@ -40,7 +46,35 @@ export const getCreateTeamView = createSelector<TeamsStateEntity, State, CreateT
     return {
       lastCreated: state.lastCreatedTeam,
       isLoading: state.createTeamLoading,
-      error: state.createTeamError
+      error: state.createTeamError,
     }
+  },
+)
+
+export const getRemoveTeamsView = createSelector<TeamsStateEntity, State, RemoveTeamsView>(
+  getTeamsStateState,
+  (state: State) => {
+    return {
+      removingTeams: state.removeTeamsLoading,
+      removingTeamsError: state.removeTeamsError,
+    }
+  },
+)
+
+export const getTeamView = createSelector<TeamsStateEntity, State, TeamView>(getTeamsStateState, (state: State) => {
+  return {
+    team: state.team,
+    error: state.teamError,
+    isLoading: state.teamLoading,
   }
+})
+
+export const getUpdateTeamView = createSelector<TeamsStateEntity, State, UpdateTeamView>(
+  getTeamsStateState,
+  (state: State) => {
+    return {
+      error: state.updateTeamError,
+      isLoading: state.updateTeamLoading,
+    }
+  },
 )

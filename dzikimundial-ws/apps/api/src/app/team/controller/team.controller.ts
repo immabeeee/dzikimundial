@@ -1,9 +1,9 @@
 import {
-  CreateTeamRequest,
   CreateTeamResponse,
+  GetTeamListRequest,
   GetTeamListResponse,
+  GetTeamResponse,
   Role,
-  UpdateTeamRequest,
   UpdateTeamResponse,
 } from '@dzikimundial-ws/api-interfaces'
 import { Body, Controller, Delete, Get, Inject, Param, Post, Put, Query, Request, UseGuards } from '@nestjs/common'
@@ -12,6 +12,8 @@ import { DeleteResult } from 'typeorm'
 import { Roles } from '../../auth/decorator/roles.decorator'
 import { JwtGuard } from '../../auth/guard/jwt.guard'
 import { RolesGuard } from '../../auth/guard/roles.guard'
+import { CreateTeamDto } from '../model/dto/create-team.dto.model'
+import { UpdateTeamDto } from '../model/dto/update-team.dto.model'
 import { TEAM_SERVICE } from '../model/token'
 import { TeamService } from '../service/team.service'
 import { LoggerService } from './../../shared/logger/service/logger.service'
@@ -25,7 +27,7 @@ export class TeamController {
   @Roles(Role.ADMIN)
   @UseGuards(JwtGuard, RolesGuard)
   @Post('')
-  create(@Body() body: CreateTeamRequest, @Request() req: any): Observable<CreateTeamResponse> {
+  create(@Body() body: CreateTeamDto, @Request() req: any): Observable<CreateTeamResponse> {
     this.loggerService.log(`${this.apiName} - create team with data: ${JSON.stringify(body)}`)
     return this.teamService.createTeam(body, req.user)
   }
@@ -33,7 +35,7 @@ export class TeamController {
   @Roles(Role.ADMIN)
   @UseGuards(JwtGuard, RolesGuard)
   @Put(':id')
-  update(@Param() id: string, @Body() body: UpdateTeamRequest, @Request() req: any): Observable<UpdateTeamResponse> {
+  update(@Param('id') id: string, @Body() body: UpdateTeamDto, @Request() req: any): Observable<UpdateTeamResponse> {
     this.loggerService.log(`${this.apiName} - update team: ${id} with data: ${JSON.stringify(body)}`)
     return this.teamService.updateTeam(id, body, req.user)
   }
@@ -47,11 +49,20 @@ export class TeamController {
   }
 
   @UseGuards(JwtGuard)
-  @Get('teams')
-  find(@Query('pageNumber') pageNumber = 0, @Query('pageSize') pageSize = 100): Observable<GetTeamListResponse> {
+  @Post('teams')
+  find(@Body() body: GetTeamListRequest): Observable<GetTeamListResponse> {
     this.loggerService.log(
-      `${this.apiName} - get teams for selected criterias: pageNumber: ${pageNumber}, pageSize: ${pageSize}`,
+      `${this.apiName} - get teams for selected criterias: pageNumber: ${body.pageNumber}, pageSize: ${
+        body.pageSize
+      }, filters: ${JSON.stringify(body.filters)}, sort: ${JSON.stringify(body.sort)}`,
     )
-    return this.teamService.findTeams(pageNumber, pageSize)
+    return this.teamService.findTeams(body)
+  }
+
+  @UseGuards(JwtGuard)
+  @Get(':id')
+  findTeam(@Param() id: any): Observable<GetTeamResponse> {
+    this.loggerService.log(`${this.apiName} - get team details for id: ${id.id}`)
+    return this.teamService.findTeam(id.id)
   }
 }

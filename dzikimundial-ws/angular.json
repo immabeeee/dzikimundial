@@ -957,6 +957,59 @@
         }
       }
     },
+    "ui-progress-bar": {
+      "projectType": "library",
+      "root": "libs/ui-progress-bar",
+      "sourceRoot": "libs/ui-progress-bar/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-progress-bar"],
+          "options": {
+            "jestConfig": "libs/ui-progress-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-progress-bar/src/**/*.ts", "libs/ui-progress-bar/src/**/*.html"]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-progress-bar/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-progress-bar",
+            "config": {
+              "configFolder": "libs/ui-progress-bar/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
     "ui-team-info": {
       "projectType": "library",
       "root": "libs/ui-team-info",

@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { INestApplication } from '@nestjs/common'
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { AppModule } from './../../../api/src/app/app.module'
 import { Role, User } from '@dzikimundial-ws/api-interfaces'
 import { getLogin, getEmail, getPassword, deleteUser, createUser, loginUser } from './helpers/auth/user.helpers'

@@ -5,7 +5,15 @@
         </p>
     </div>
     <div class="menu-container">
-        <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'show team\'s players'"
-            [icon]="'gg-user-list'"></dzikimundial-ws-ui-icon-button>
+        <ng-container *ngIf="removeTeamView$ | async as view">
+            <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'edit team'"
+                [icon]="'gg-edit-markup'" [routerLink]="'edit/' + team.id">
+            </dzikimundial-ws-ui-icon-button>
+            <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'remove team'" [icon]="'gg-trash'"
+                (click)="handleRemoveTeam()" [isLoading]="view.removingTeams && view.removingTeams.length > 0">
+            </dzikimundial-ws-ui-icon-button>
+            <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'show team\'s players'"
+                [icon]="'gg-user-list'"></dzikimundial-ws-ui-icon-button>
+        </ng-container>
     </div>
 </div>

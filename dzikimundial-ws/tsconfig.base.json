@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@dziki-mundial-ws/api/*": ["apps/api/*"],
       "@dzikimundial-ws/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@dzikimundial-ws/assets": ["libs/assets/src/index.ts"],
       "@dzikimundial-ws/auth": ["libs/auth/src/index.ts"],
@@ -27,6 +28,7 @@
       "@dzikimundial-ws/ui-input": ["libs/ui-input/src/index.ts"],
       "@dzikimundial-ws/ui-logo": ["libs/ui-logo/src/index.ts"],
       "@dzikimundial-ws/ui-nav-link": ["libs/ui-nav-link/src/index.ts"],
+      "@dzikimundial-ws/ui-progress-bar": ["libs/ui-progress-bar/src/index.ts"],
       "@dzikimundial-ws/ui-team-info": ["libs/ui-team-info/src/index.ts"],
       "@dzikimundial-ws/ui-tooltip": ["libs/ui-tooltip/src/index.ts"],
       "@dzikimundial-ws/utils": ["libs/utils/src/index.ts"]

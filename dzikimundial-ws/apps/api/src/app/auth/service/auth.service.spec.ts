@@ -9,12 +9,12 @@ import { Role, User } from '@dzikimundial-ws/api-interfaces'
 import { of, take } from 'rxjs'
 
 export const mockRepository = jest.fn(() => ({
-    save: jest.fn(),
-    metadata: {
-      columns: [],
-      relations: [],
-    },
-  }));
+  save: jest.fn(),
+  metadata: {
+    columns: [],
+    relations: [],
+  },
+}))
 
 describe('AuthService', () => {
   let service: AuthService
@@ -30,7 +30,7 @@ describe('AuthService', () => {
         AuthService,
         {
           provide: USER_REPOSITORY_TOKEN,
-          useClass: mockRepository
+          useClass: mockRepository,
         },
         {
           provide: JwtService,
@@ -39,8 +39,7 @@ describe('AuthService', () => {
           },
         },
       ],
-    })
-    .compile()
+    }).compile()
 
     service = module.get<AuthService>(AuthService)
     jwtService = module.get<JwtService>(JwtService)
@@ -74,7 +73,7 @@ describe('AuthService', () => {
 
     it('should call userRepository.save with correct params', async () => {
       // given
-      ;(jest.spyOn(service, 'hashPassword') as any).mockReturnValueOnce(of('123'))
+      jest.spyOn(service, 'hashPassword').mockReturnValueOnce(of('123'))
 
       const user1: User = {
         login: 'user1',
@@ -85,12 +84,12 @@ describe('AuthService', () => {
       // when
 
       jest.spyOn(userRepository, 'save').mockReturnValueOnce({
-          email: "user1@user1.com", 
-          id: "lorem", 
-          login: "user1", 
-          password: "123", 
-          role: "admin"
-        } as any);
+        email: 'user1@user1.com',
+        id: 'lorem',
+        login: 'user1',
+        password: '123',
+        role: 'admin',
+      } as any)
 
       service.registerAccount(user1).pipe(take(1)).subscribe()
 
@@ -101,15 +100,13 @@ describe('AuthService', () => {
         password: '123',
         role: Role.ADMIN,
       })
-      expect(userRepository.save).toReturnWith(
-        {
-            email: "user1@user1.com", 
-            id: "lorem", 
-            login: "user1", 
-            password: "123", 
-            role: "admin"
-          }
-      )
+      expect(userRepository.save).toReturnWith({
+        email: 'user1@user1.com',
+        id: 'lorem',
+        login: 'user1',
+        password: '123',
+        role: 'admin',
+      })
     })
   })
 })

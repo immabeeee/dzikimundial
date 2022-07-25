@@ -11,24 +11,15 @@
 @import url('https://css.gg/lock.css');
 @import url('https://css.gg/log-off.css');
 @import url('https://css.gg/user-list.css');
+@import url('https://css.gg/sun.css');
+@import url('https://css.gg/moon.css');
+@import url('https://css.gg/remove.css');
+@import url('https://css.gg/trash.css');
+@import url('https://css.gg/edit-markup.css');
 
 :root {
     --font-family: 'Manrope', sans-serif;
-    --white-100: #fff;
-    --grey-0: #e4e4e4;
-    --grey-50: #B8B8B8;
-    --grey-75: #6a6a6a;
-    --grey-100: #262626;
-    --grey-200: #111111;
-    --grey-300: #080808;
-    --grey-400: #1B1E21;
-    --black-100: #000000;
-    --blue-100: #00C8C8;
-    --blue-200: #009494;
-    --blue-300: #0031a0;
-    --green-100: #13a953;
-    --red-100: #c84900;
-    --brown-100: #1a1a1a;
+    --theme: 'primary';
 
     --font-700: 700;
     --font-600: 600;
