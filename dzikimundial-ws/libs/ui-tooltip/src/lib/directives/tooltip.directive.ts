@@ -19,7 +19,7 @@ import { UiTooltipComponent } from '../ui/ui-tooltip/ui-tooltip.component'
   selector: '[dzikimundialWsTooltip]',
 })
 export class TooltipDirective implements OnDestroy {
-  @Input() tooltipContent!: string | TemplateRef<any> | Type<any>
+  @Input() tooltipContent!: string | TemplateRef<any> | Type<any> | undefined | null
   @Input() tooltipHide = false
 
   private componentRef: ComponentRef<UiTooltipComponent> | null = null
@@ -42,6 +42,10 @@ export class TooltipDirective implements OnDestroy {
   }
 
   private generateNgContent() {
+    if (!this.tooltipContent) {
+      return
+    }
+
     if (typeof this.tooltipContent === 'string') {
       const element = this.renderer.createText(this.tooltipContent)
       return [[element]]
@@ -60,7 +64,7 @@ export class TooltipDirective implements OnDestroy {
 
   @HostListener('mouseenter')
   private mouseenter() {
-    if (this.componentRef || this.tooltipHide) return
+    if (this.componentRef || this.tooltipHide || !this.tooltipContent) return
     const factory = this.resolver.resolveComponentFactory(UiTooltipComponent)
 
     const injector = ReflectiveInjector.resolveAndCreate([

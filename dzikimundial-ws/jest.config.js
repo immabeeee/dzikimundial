@@ -20,5 +20,7 @@ module.exports = {
     '<rootDir>/libs/utils',
     '<rootDir>/apps/api-e2e',
     '<rootDir>/libs/ui-progress-bar',
+    '<rootDir>/libs/test-utils',
+    '<rootDir>/libs/ui-message',
   ],
 }

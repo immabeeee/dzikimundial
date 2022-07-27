@@ -22,4 +22,5 @@ export class UiIconButtonComponent {
     | 'gg-trash'
     | 'gg-edit-markup'
   @Input() isLoading = false
+  @Input() isDisabled = false
 }

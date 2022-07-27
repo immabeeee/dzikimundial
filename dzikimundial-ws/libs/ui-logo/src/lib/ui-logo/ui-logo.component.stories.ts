@@ -20,3 +20,8 @@ export const Primary = Template.bind({})
 Primary.args = {
   isBig: false,
 }
+
+export const Big = Template.bind({})
+Big.args = {
+  isBig: true,
+}

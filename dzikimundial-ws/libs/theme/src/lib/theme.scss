@@ -16,10 +16,40 @@
 @import url('https://css.gg/remove.css');
 @import url('https://css.gg/trash.css');
 @import url('https://css.gg/edit-markup.css');
+@import url('https://css.gg/smile-mouth-open.css');
+@import url('https://css.gg/smile-no-mouth.css');
+@import url('https://css.gg/smile-none.css');
+@import url('https://css.gg/smile-sad.css');
 
 :root {
     --font-family: 'Manrope', sans-serif;
     --theme: 'primary';
+    --white-100: #ffffff;
+    --grey-0: #e4e4e4;
+    --grey-50: #B8B8B8;
+    --grey-75: #6a6a6a;
+    --grey-100: #262626;
+    --grey-200: #111111;
+    --grey-250: #3b3b3b;
+    --grey-300: #080808;
+    --grey-400: #1B1E21;
+    --black-100: #000000;
+    --blue-100: #00C8C8;
+    --blue-200: #009494;
+    --blue-300: #0031a0;
+    --blue-500: #001035;
+    --green-100: #13a953;
+    --red-100: #c84900;
+    --brown-100: #1a1a1a;
+
+    --error-100: #7a0000;
+    --error-200: #953535;
+    --warn-100: #c57e07;
+    --warn-200: #a96c06;
+    --info-100: #01addb;
+    --info-200: #007a9b;
+    --success-100: #01db72;
+    --success-200: #00ab58;
 
     --font-700: 700;
     --font-600: 600;
@@ -30,4 +60,8 @@
     --font-xl: '18px';
     --font-l: '16px';
     --font-m: '14px';
+}
+
+.body {
+    background-color: var(--grey-200);
 }

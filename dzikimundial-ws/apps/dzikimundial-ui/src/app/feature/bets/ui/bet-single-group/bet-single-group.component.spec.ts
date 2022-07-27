@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, DebugElement } from '@angular/core'
 import { TestBed, async, ComponentFixture } from '@angular/core/testing'
 import { BetSingleGroupComponent } from './bet-single-group.component'
 import { BetsSingleGroupModule } from './bet-single-group.module'
-import * as testData from '../../test/singles.test-data'
+import * as testData from '@dzikimundial-ws/test-utils'
 import { By } from '@angular/platform-browser'
 
 describe('BetSingleGroupComponent', () => {

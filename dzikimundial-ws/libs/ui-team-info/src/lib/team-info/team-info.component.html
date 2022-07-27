@@ -1,5 +1,6 @@
 <div class="team-info-container" [ngClass]="{'reversed': isReversed}" *ngIf="team">
-    <p data-test-id="bet-group-team-name">{{team.name}}</p>
+    <p data-test-id="bet-group-team-name" #nameParagraph dzikimundialWsTooltip
+        [tooltipContent]="isEllipsisActive ? team.name : null">{{team.name}}</p>
     <dzikimundial-ws-ui-flag data-test-id="bet-group-team-flag" [url]="team.logo" [description]="team.description">
     </dzikimundial-ws-ui-flag>
 </div>

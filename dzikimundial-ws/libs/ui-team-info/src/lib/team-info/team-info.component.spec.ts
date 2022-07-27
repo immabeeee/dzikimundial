@@ -1,36 +1,36 @@
 import { ChangeDetectionStrategy } from '@angular/core'
 import { TestBed, async, ComponentFixture } from '@angular/core/testing'
-import { TeamInfoComponent } from './team-info.component'
-import { TeamInfoModule } from './team-info.module'
-import * as testTeamsData from '../../test/teams.test-data'
-import { TeamName } from '../../models/bets-groups/bets-group.model'
+import * as testData from '@dzikimundial-ws/test-utils';
 import { By } from '@angular/platform-browser'
+import { UiTeamInfoModule } from './../ui-team-info.module'
+import { UiTeamInfoComponent } from './team-info.component'
+import { TeamName } from '@dzikimundial-ws/api-interfaces'
 
 describe('TeamInfoComponent', () => {
-  let fixture: ComponentFixture<TeamInfoComponent>
-  let component: TeamInfoComponent
+  let fixture: ComponentFixture<UiTeamInfoComponent>
+  let component: UiTeamInfoComponent
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TeamInfoComponent],
-      imports: [TeamInfoModule],
+      declarations: [UiTeamInfoComponent],
+      imports: [UiTeamInfoModule],
       providers: [],
     })
-      .overrideComponent(TeamInfoComponent, {
+      .overrideComponent(UiTeamInfoComponent, {
         set: { changeDetection: ChangeDetectionStrategy.Default },
       })
       .compileComponents()
   }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TeamInfoComponent)
+    fixture = TestBed.createComponent(UiTeamInfoComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })
 
   it('should create the component', () => {
     // given
-    component.team = testTeamsData.findTeam(TeamName.AUSTRALIA)
+    component.team = testData.findTeam(TeamName.AUSTRALIA)
     component.isReversed = false
     // when
     // then
@@ -39,7 +39,7 @@ describe('TeamInfoComponent', () => {
 
   it('should display name of the team', () => {
     // given
-    component.team = testTeamsData.findTeam(TeamName.BELGIUM)
+    component.team = testData.findTeam(TeamName.BELGIUM)
     fixture.detectChanges()
 
     const nameParagraph: HTMLInputElement = fixture.debugElement.query(
@@ -54,7 +54,7 @@ describe('TeamInfoComponent', () => {
 
   it('should display flag of the team', () => {
     // given
-    const team = testTeamsData.findTeam(TeamName.BELGIUM)
+    const team = testData.findTeam(TeamName.BELGIUM)
     component.team = team
     fixture.detectChanges()
     const flagImage: HTMLImageElement = fixture.debugElement.query(
@@ -70,7 +70,7 @@ describe('TeamInfoComponent', () => {
 
   it('should display name and flag of the team, when component is reversed', () => {
     // given
-    const team = testTeamsData.findTeam(TeamName.BELGIUM)
+    const team = testData.findTeam(TeamName.BELGIUM)
     component.team = team
     component.isReversed = true
     fixture.detectChanges()

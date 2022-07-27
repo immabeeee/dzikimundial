@@ -1,7 +1,7 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular'
 import { BetGroupListComponent } from './bet-group-list.component'
 import { BetsGroupListModule } from './bet-group-list.module'
-import * as testData from '../../test/groups.test-data'
+import * as testData from '@dzikimundial-ws/test-utils'
 
 export default {
   title: 'BetGroupListComponent',

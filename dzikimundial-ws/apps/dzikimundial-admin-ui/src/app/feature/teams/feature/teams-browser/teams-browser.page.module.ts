@@ -9,7 +9,7 @@ import { UiNavLinkModule } from '@dzikimundial-ws/ui-nav-link'
 @NgModule({
   declarations: [TeamsBrowserPageComponent],
   imports: [CommonModule, TeamsBrowserPageRoutingModule, TeamListModule, TeamListFiltersModule, UiNavLinkModule],
-  exports: [],
+  exports: [TeamsBrowserPageComponent],
   providers: [],
 })
 export class TeamsBrowserPageModule {}

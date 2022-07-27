@@ -263,6 +263,37 @@
             "jestConfig": "apps/dzikimundial-admin-ui/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "apps/dzikimundial-admin-ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/dzikimundial-admin-ui",
+            "config": {
+              "configFolder": "apps/dzikimundial-admin-ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       }
     },
@@ -617,6 +648,28 @@
         }
       }
     },
+    "test-utils": {
+      "projectType": "library",
+      "root": "libs/test-utils",
+      "sourceRoot": "libs/test-utils/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/test-utils"],
+          "options": {
+            "jestConfig": "libs/test-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/test-utils/src/**/*.ts", "libs/test-utils/src/**/*.html"]
+          }
+        }
+      }
+    },
     "theme": {
       "projectType": "library",
       "root": "libs/theme",
@@ -904,6 +957,59 @@
         }
       }
     },
+    "ui-message": {
+      "projectType": "library",
+      "root": "libs/ui-message",
+      "sourceRoot": "libs/ui-message/src",
+      "prefix": "dzikimundial-ws",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-message"],
+          "options": {
+            "jestConfig": "libs/ui-message/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-message/src/**/*.ts", "libs/ui-message/src/**/*.html"]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-message/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-message",
+            "config": {
+              "configFolder": "libs/ui-message/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
     "ui-nav-link": {
       "projectType": "library",
       "root": "libs/ui-nav-link",
@@ -1081,6 +1187,37 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/ui-tooltip/src/**/*.ts", "libs/ui-tooltip/src/**/*.html"]
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ui-tooltip/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ui-tooltip",
+            "config": {
+              "configFolder": "libs/ui-tooltip/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }

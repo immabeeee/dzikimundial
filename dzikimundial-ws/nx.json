@@ -66,6 +66,9 @@
     "pipes-sort-array-by-key": {
       "tags": []
     },
+    "test-utils": {
+      "tags": []
+    },
     "theme": {
       "tags": []
     },
@@ -82,6 +85,9 @@
       "tags": []
     },
     "ui-logo": {
+      "tags": []
+    },
+    "ui-message": {
       "tags": []
     },
     "ui-nav-link": {

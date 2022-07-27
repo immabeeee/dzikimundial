@@ -25,6 +25,12 @@
         animation: primary 2s infinite forwards ease-in-out;
         animation: click 0.3s normal forwards ease-in-out;
     }
+
+    &.disabled {
+        opacity: 50%;
+        cursor: default;
+        animation: none;
+    }
 }
 
 @keyframes primary {

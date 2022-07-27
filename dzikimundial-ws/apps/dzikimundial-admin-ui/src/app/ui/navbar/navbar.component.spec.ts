@@ -36,16 +36,16 @@ describe('NavbarComponent', () => {
     const fixture = TestBed.createComponent(NavbarComponent)
     const ul = fixture.debugElement.queryAll(By.css('li'))
     const item1: HTMLAnchorElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-bets"] > a'),
+      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-teams"] > a'),
     ).nativeElement
     const item2: HTMLAnchorElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-scores"] > a'),
+      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-players"] > a'),
     ).nativeElement
     const item3: HTMLAnchorElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-prizes"] > a'),
+      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-tournaments"] > a'),
     ).nativeElement
     const item4: HTMLAnchorElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-settings"] > a'),
+      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-users"] > a'),
     ).nativeElement
 
     fixture.detectChanges()
@@ -54,15 +54,15 @@ describe('NavbarComponent', () => {
     expect(ul.length).toBe(4)
 
     expect(item1).toBeTruthy()
-    expect(item1.textContent).toBe('bets')
+    expect(item1.textContent).toContain('teams')
 
     expect(item2).toBeTruthy()
-    expect(item2.textContent).toBe('scores')
+    expect(item2.textContent).toContain('players')
 
     expect(item3).toBeTruthy()
-    expect(item3.textContent).toBe('prizes')
+    expect(item3.textContent).toContain('tournaments')
 
     expect(item4).toBeTruthy()
-    expect(item4.textContent).toBe('settings')
+    expect(item4.textContent).toContain('users')
   })
 })

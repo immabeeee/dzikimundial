@@ -1,21 +1,21 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular'
-import { TeamName } from '../../models/bets-groups/bets-group.model'
-import * as testData from '../../test/teams.test-data'
-import { TeamInfoComponent } from './team-info.component'
-import { TeamInfoModule } from './team-info.module'
+import { UiTeamInfoModule } from '../ui-team-info.module'
+import { UiTeamInfoComponent } from './team-info.component'
+import { TeamName } from '@dzikimundial-ws/api-interfaces'
+import * as testData from '@dzikimundial-ws/test-utils';
 
 export default {
   title: 'TeamInfoComponent',
-  component: TeamInfoComponent,
+  component: UiTeamInfoComponent,
   decorators: [
     moduleMetadata({
-      imports: [TeamInfoModule],
+      imports: [UiTeamInfoModule],
     }),
   ],
-} as Meta<TeamInfoComponent>
+} as Meta<UiTeamInfoComponent>
 
-const Template: Story<TeamInfoComponent> = (args: TeamInfoComponent) => ({
-  component: TeamInfoComponent,
+const Template: Story<UiTeamInfoComponent> = (args: UiTeamInfoComponent) => ({
+  component: UiTeamInfoComponent,
   props: args,
 })
 

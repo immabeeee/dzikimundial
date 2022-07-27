@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { Team } from '@dzikimundial-ws/api-interfaces'
 import { ROUTER_LINK } from './../../../../models/route-links.model'
 import { map, Observable } from 'rxjs'
@@ -10,9 +10,12 @@ import { TeamService } from '../../data-access/team.service'
   selector: 'dzikimundial-ws-admin-team-item',
   templateUrl: './team-item.component.html',
   styleUrls: ['./team-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class TeamItemComponent {
   @Input() public team!: Team
+  @Input() public hideMenu = false;
+
   public removeTeamView$: Observable<RemoveTeamsView> = this.teamsStateFacade.removeTeamView$.pipe(
     map((view) => {
       return {

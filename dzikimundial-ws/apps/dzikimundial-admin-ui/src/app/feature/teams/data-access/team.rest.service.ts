@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable } from 'rxjs'
+import { delay, Observable } from 'rxjs'
 import {
   CreateTeamRequest,
   CreateTeamResponse,
@@ -31,11 +31,11 @@ export class TeamRestService {
 
   public updateTeam(id: string, req: UpdateTeamRequest): Observable<UpdateTeamResponse> {
     const path = `/team/${id}`
-    return this.httpClient.put<CreateTeamResponse>(`${environment.baseApiUrl}${path}`, req, this.httpOptions)
+    return this.httpClient.put<CreateTeamResponse>(`${environment.baseApiUrl}${path}`, req, this.httpOptions).pipe(delay(5000))
   }
 
   public removeTeam(id: string): Observable<DeleteResult> {
     const path = `/team/${id}`
-    return this.httpClient.delete<DeleteResult>(`${environment.baseApiUrl}${path}`)
+    return this.httpClient.delete<DeleteResult>(`${environment.baseApiUrl}${path}`).pipe(delay(5000))
   }
 }

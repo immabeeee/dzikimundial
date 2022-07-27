@@ -3,13 +3,20 @@
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    width: 100%;
 
     &.reversed {
         flex-direction: row-reverse;
     }
 
-    p{
+    p {
         font-weight: var(--font-500);
         font-size: var(--font-s);
+        color: var(--white-100);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 200px;
+        height: 1.2em;
+        white-space: nowrap;
     }
 }

@@ -1,11 +1,13 @@
-<button class="button" data-test-id="dm-icon-button">
+<button class="button" data-test-id="dm-icon-button" [ngClass]="{
+    'disabled': isDisabled
+  }" [disabled]="isDisabled">
     <div class="icon-container">
         <ng-container *ngIf="isLoading; else iconTempl">
-            <i class="gg-spinner-two"></i>
+            <i class="gg-spinner-two" data-test-id="dm-icon-button-loading-icon"></i>
         </ng-container>
     </div>
 </button>
 
 <ng-template #iconTempl>
-    <i *ngIf="icon" class="{{icon}}"></i>
+    <i *ngIf="icon" class="{{icon}}" data-test-id="dm-icon-button-icon"></i>
 </ng-template>
