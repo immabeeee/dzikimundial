@@ -31,11 +31,11 @@ export class TeamRestService {
 
   public updateTeam(id: string, req: UpdateTeamRequest): Observable<UpdateTeamResponse> {
     const path = `/team/${id}`
-    return this.httpClient.put<CreateTeamResponse>(`${environment.baseApiUrl}${path}`, req, this.httpOptions).pipe(delay(5000))
+    return this.httpClient.put<CreateTeamResponse>(`${environment.baseApiUrl}${path}`, req, this.httpOptions)
   }
 
   public removeTeam(id: string): Observable<DeleteResult> {
     const path = `/team/${id}`
-    return this.httpClient.delete<DeleteResult>(`${environment.baseApiUrl}${path}`).pipe(delay(5000))
+    return this.httpClient.delete<DeleteResult>(`${environment.baseApiUrl}${path}`)
   }
 }

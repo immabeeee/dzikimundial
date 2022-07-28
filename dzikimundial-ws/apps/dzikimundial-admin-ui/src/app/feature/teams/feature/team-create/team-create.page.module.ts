@@ -3,12 +3,11 @@ import { NgModule } from '@angular/core'
 import { TeamCreatePageRoutingModule } from './team-create-page-routing.module'
 import { TeamCreatePageComponent } from './team-create.page'
 import { UiNavLinkModule } from '@dzikimundial-ws/ui-nav-link'
-import { UiInputModule } from '@dzikimundial-ws/ui-input'
 import { TeamFormService } from '../../data-access/team-form.service'
-import { ReactiveFormsModule } from '@angular/forms'
-import { TeamItemModule } from '../team-item/team-item.module'
+import { TeamItemModule } from '../../ui/team-item/team-item.module'
 import { UiButtonModule } from '@dzikimundial-ws/ui-button'
 import { TeamService } from '../../data-access/team.service'
+import { TeamFormModule } from '../team-form/team-form.module'
 
 @NgModule({
   declarations: [TeamCreatePageComponent],
@@ -16,10 +15,9 @@ import { TeamService } from '../../data-access/team.service'
     CommonModule,
     TeamCreatePageRoutingModule,
     UiNavLinkModule,
-    UiInputModule,
-    ReactiveFormsModule,
     TeamItemModule,
-    UiButtonModule
+    UiButtonModule,
+    TeamFormModule
   ],
   exports: [],
   providers: [TeamFormService, TeamService],

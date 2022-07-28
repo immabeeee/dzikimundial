@@ -3,15 +3,22 @@
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    background-color: var(--black-100);
     align-items: center;
     justify-content: center;
+    gap: 50px;
+
+    background-image: radial-gradient(var(--grey-100) 2px, transparent 2px), radial-gradient(var(--grey-100) 2px, transparent 2px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    background-color: var(--grey-300);
 
     .form-wrapper {
-        // padding: 20px;
-        // background-color: var(--white-100);
-        // border: 2px solid var(--grey-0);
-        // border-radius: 10px;
+
+        padding: 20px;
+        background-color: var(--grey-200);
+        border: 2px solid var(--grey-100);
+        border-radius: 10px;
+
         form {
             width: 400px;
 
@@ -30,42 +37,6 @@
 
                     dzikimundial-ws-ui-button {
                         width: 100%;
-                    }
-                }
-
-                .fieldset-item {
-                    input {
-                        width: 100%;
-                        height: 50px;
-                        padding-left: 10px;
-                        font-size: var(--font-xl);
-                        // background-color: var(--white-100);
-                        // border: 2px solid var(--grey-0);
-                        // border-radius: 10px;
-                        background-color: transparent;
-                        color: var(--white-100);
-                        border: none;
-                        border-bottom: 1px solid var(--grey-50);
-
-                        &:focus,
-                        &:active {
-                            outline: none;
-                        }
-                    }
-
-                    &.error {
-                        label {
-                            color: var(--red-100);
-                        }
-
-                        input {
-                            color: var(--red-100);
-                            border-bottom: 1px solid var(--red-100);
-                        }
-
-                        .fieldset-item-error {
-                            color: var(--red-100);
-                        }
                     }
                 }
             }

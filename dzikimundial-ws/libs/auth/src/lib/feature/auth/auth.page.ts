@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormGroup } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
-import { Subscription, take } from 'rxjs'
+import { LoginUserResponse } from '@dzikimundial-ws/api-interfaces'
+import { BehaviorSubject, catchError, concat, of, Subscription, take, tap, throwError } from 'rxjs'
 import { AuthService } from '../../data-access/auth.service'
 import { AuthFormService } from '../../data-access/form/form/auth-form.service'
+
 @Component({
   selector: 'dzikimundial-ws-auth-page',
   templateUrl: './auth.page.html',
@@ -12,7 +14,7 @@ import { AuthFormService } from '../../data-access/form/form/auth-form.service'
 })
 export class AuthPageComponent implements OnInit, OnDestroy {
   public form: FormGroup
-  public isAuthLoading = false
+  public isLoading = false
 
   private redirectTo!: string
   private subscriptions: Subscription = new Subscription()
@@ -33,24 +35,29 @@ export class AuthPageComponent implements OnInit, OnDestroy {
     )
   }
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+    this.subscriptions.unsubscribe()
   }
 
   public onSubmit(): void {
     this.form.markAllAsTouched()
-
+    
     if (!this.form.valid) {
       return
     }
-
-    this.isAuthLoading = true
-
+    this.isLoading = true
     this.authService
       .signIn(this.form.getRawValue())
-      .pipe(take(1))
-      .subscribe(({ token }) => {
-        this.isAuthLoading = false
-        this.authService.handleSignInUser(token, this.redirectTo)
+      .pipe(
+        take(1),
+        catchError((err) => {
+          return concat(of(null), throwError(err))
+        }),
+      )
+      .subscribe((response: LoginUserResponse | null) => {
+        this.isLoading = false
+        if (response) {
+          this.authService.handleSignInUser(response.token, this.redirectTo)
+        }
       })
   }
 }

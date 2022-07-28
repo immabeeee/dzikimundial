@@ -3,26 +3,27 @@ import { Router } from '@angular/router'
 import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs'
 import { AuthRestService } from './auth.rest.service'
 import { JwtService } from './jwt.service'
+import { LoginUserRequest, LoginUserResponse, Role, User } from '@dzikimundial-ws/api-interfaces'
 
 @Injectable()
 export class AuthService {
-  private user$: BehaviorSubject<any | null> = new BehaviorSubject<any | null>(null)
+  private user$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null)
 
   constructor(private authRestService: AuthRestService, private jwtService: JwtService, private router: Router) {}
 
   get isUserLoggedIn(): Observable<boolean> {
     return this.user$.asObservable().pipe(
-      switchMap((user: any | null) => {
+      switchMap((user: User | null) => {
         const isUserAuthenticated = !!user
         return of(isUserAuthenticated)
       }),
     )
   }
 
-  get userRole(): Observable<any | undefined> {
+  get userRole(): Observable<Role | null> {
     return this.user$.asObservable().pipe(
-      switchMap((user: any | null) => {
-        return of(user?.user?.role)
+      switchMap((user: User | null) => {
+        return user ? of(user?.role) : of(null)
       }),
     )
   }
@@ -31,8 +32,8 @@ export class AuthService {
     return this.jwtService.getToken()
   }
 
-  public signIn({ login, password }: any): Observable<any> {
-    const request: any = {
+  public signIn({ login, password }: { login: string; password: string }): Observable<LoginUserResponse> {
+    const request: LoginUserRequest = {
       login,
       password,
     }
@@ -42,12 +43,12 @@ export class AuthService {
 
   public isUnexpiredTokenInStorage(): Observable<boolean> {
     return of(this.jwtService.getDecodedToken()).pipe(
-      map((user: any | null) => {
-        if (!user || this.isTokenExpired(user.exp)) {
+      map((decodedToken: any | null) => {
+        if (!decodedToken || this.isTokenExpired(decodedToken.exp)) {
           return false
         }
 
-        this.user$.next(user)
+        this.user$.next(decodedToken)
         return true
       }),
     )

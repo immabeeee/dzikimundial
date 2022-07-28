@@ -6,7 +6,7 @@
     label {
         padding-left: 5px;
         font-size: 14px;
-        color: #9d9d9d;
+        color: var(--grey-50);
 
         .required {
             color: var(--blue-100);
@@ -25,7 +25,9 @@
         color: var(--white-100);
         font-size: 16px;
 
-        &:active, &:focus, &:focus-visible{
+        &:active,
+        &:focus,
+        &:focus-visible {
             border: 1px solid var(--blue-200);
             outline-style: var(--blue-200);
         }
@@ -33,5 +35,27 @@
 
     .description {
         color: var(--grey-75) !important;
+    }
+
+    &.error {
+        label {
+            color: var(--red-100);
+
+            .required {
+                color: var(--red-100);
+            }
+        }
+
+        input {
+            border: 1px solid var(--red-100);
+            color: var(--red-100);
+        }
+    }
+
+
+
+    .validation-error {
+        color: var(--red-100);
+        font-size: var(--font-m);
     }
 }

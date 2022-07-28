@@ -4,21 +4,6 @@
     height: 100%;
     width: 100%;
 
-    .sidebar-conatiner {
-        height: 100%;
-        width: 100%;
-        border-right: 1px solid var(--grey-100);
-
-        .menu-list {
-            display: flex;
-            flex-direction: column;
-
-            .menu-item{
-                height: 80px;
-            }
-        }
-    }
-
     .scroll-container {
         overflow: auto;
         max-height: 100vh;

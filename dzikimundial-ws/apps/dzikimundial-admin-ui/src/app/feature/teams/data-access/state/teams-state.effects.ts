@@ -58,7 +58,7 @@ export class TeamsStateEffects {
           : storeState.teamsListQuery
           ? storeState.teamsListQuery
           : generateDefaultListQuery()
-          
+
         return this.teamsRestService.fetchTeamList(listQuery).pipe(
           switchMap((resp: GetTeamListResponse) => {
             return [TeamsStateActions.fetchTeamListSuccess({ resp })]
@@ -116,6 +116,9 @@ export class TeamsStateEffects {
         ofType(TeamsStateActions.updateTeamSuccess),
         tap(() => {
           this.toastr.success('team has been updated', 'yea 😎')
+        }),
+        tap(() => {
+          this.router.navigate([ROUTER_LINK.PREV_RELATIVE_TO_PARENT])
         }),
       ),
     { dispatch: false },

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { Team } from '@dzikimundial-ws/api-interfaces'
-import { ROUTER_LINK } from './../../../../models/route-links.model'
+import { ROUTER_LINK } from '../../../../models/route-links.model'
 import { map, Observable } from 'rxjs'
 import { TeamsStateFacade } from '../../data-access/state/teams-state.facade'
 import { RemoveTeamsView } from '../../data-access/state/teams-state.models'

@@ -1,6 +1,6 @@
 import { RouterTestingModule } from '@angular/router/testing'
 import { provideMockStore } from '@ngrx/store/testing'
-import { moduleMetadata, Story, Meta, componentWrapperDecorator } from '@storybook/angular'
+import { moduleMetadata, Story, Meta } from '@storybook/angular'
 import { RelativeRouterService } from './../../../../remote/services/relative-router.service'
 import { TeamsStateFacade } from '../../data-access/state/teams-state.facade'
 import { initialState } from '../../data-access/state/teams-state.reducer'
@@ -9,6 +9,7 @@ import { TeamsBrowserPageModule } from './teams-browser.page.module'
 import { getRemoveTeamsView, getTeamListView } from '../../data-access/state/teams-state.selectors'
 import * as teamsTestData from '@dzikimundial-ws/test-utils'
 import { generateDefaultListQuery } from '@dzikimundial-ws/api-interfaces'
+import { addDefaultWrapper } from './../../../../../../.storybook/utils'
 
 export default {
   title: 'TeamsBrowserPageComponent',
@@ -41,7 +42,7 @@ export default {
         RelativeRouterService,
       ],
     }),
-    componentWrapperDecorator((story) => `<div style="background-color: var(--grey-200)">${story}</div>`),
+    addDefaultWrapper(),
   ],
 } as Meta<TeamsBrowserPageComponent>
 

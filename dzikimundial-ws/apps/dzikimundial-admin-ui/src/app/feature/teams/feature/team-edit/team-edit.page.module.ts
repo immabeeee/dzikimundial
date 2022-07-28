@@ -6,10 +6,11 @@ import { UiNavLinkModule } from '@dzikimundial-ws/ui-nav-link'
 import { UiInputModule } from '@dzikimundial-ws/ui-input'
 import { TeamFormService } from '../../data-access/team-form.service'
 import { ReactiveFormsModule } from '@angular/forms'
-import { TeamItemModule } from '../team-item/team-item.module'
+import { TeamItemModule } from '../../ui/team-item/team-item.module'
 import { UiButtonModule } from '@dzikimundial-ws/ui-button'
 import { TeamService } from '../../data-access/team.service'
 import { UiProgressBarModule } from '@dzikimundial-ws/ui-progress-bar'
+import { TeamFormModule } from '../team-form/team-form.module'
 
 @NgModule({
   declarations: [TeamEditPageComponent],
@@ -17,11 +18,10 @@ import { UiProgressBarModule } from '@dzikimundial-ws/ui-progress-bar'
     CommonModule,
     TeamEditPageRoutingModule,
     UiNavLinkModule,
-    UiInputModule,
-    ReactiveFormsModule,
     TeamItemModule,
     UiButtonModule,
     UiProgressBarModule,
+    TeamFormModule
   ],
   exports: [],
   providers: [TeamFormService, TeamService],

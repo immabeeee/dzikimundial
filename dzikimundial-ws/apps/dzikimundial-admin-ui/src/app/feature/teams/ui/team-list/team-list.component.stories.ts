@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta, componentWrapperDecorator } from '@storybook/angular'
+import { moduleMetadata, Story, Meta } from '@storybook/angular'
 import { provideMockStore } from '@ngrx/store/testing'
 import { initialState } from '../../data-access/state/teams-state.reducer'
 import { TeamListModule } from './team-list.module'
@@ -7,6 +7,8 @@ import { TeamsStateFacade } from '../../data-access/state/teams-state.facade'
 import { teams } from '@dzikimundial-ws/test-utils'
 import { generateDefaultListQuery } from '@dzikimundial-ws/api-interfaces'
 import { of } from 'rxjs'
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { addDefaultWrapper } from 'apps/dzikimundial-admin-ui/.storybook/utils'
 
 export default {
   title: 'TeamListComponent',
@@ -21,7 +23,7 @@ export default {
         TeamsStateFacade,
       ],
     }),
-    componentWrapperDecorator((story) => `<div style="background-color: var(--grey-200)">${story}</div>`),
+    addDefaultWrapper(),
   ],
 } as Meta<TeamListComponent>
 

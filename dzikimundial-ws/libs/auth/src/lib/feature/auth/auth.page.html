@@ -5,31 +5,20 @@
     <div class="form-wrapper">
         <form [formGroup]="form">
             <fieldset class="fieldset">
-                <div class="fieldset-item" [ngClass]="{
-                        'error': form?.get('login')?.errors && form?.get('login')?.touched
-                      }">
-                    <input placeholder="login" type="login" formControlName="login" name="login">
-                    <div class="fieldset-item-error" *ngIf="form?.get('login')?.errors && form?.get('login')?.touched">
-                        <ng-container *ngIf="form?.get('login')?.errors?.required">
-                            Please provide a login.
-                        </ng-container>
-                    </div>
+                <div class="fieldset-item">
+                    <dzikimundial-ws-ui-input formControlName="login" [label]="'Login'" [id]="'login'" [type]="'text'"
+                        [placeholder]="'type your login'">
+                    </dzikimundial-ws-ui-input>
                 </div>
-                <div class="fieldset-item" [ngClass]="{
-                        'error': form?.get('password')?.errors && form?.get('password')?.touched
-                      }">
-                    <input placeholder="password" type="password" formControlName="password" name="password">
-                    <div class="fieldset-item-error"
-                        *ngIf="form?.get('password')?.errors && form?.get('password')?.touched">
-                        <ng-container *ngIf="form?.get('password')?.errors?.required">
-                            Please provide a password.
-                        </ng-container>
-                    </div>
+                <div class="fieldset-item">
+                    <dzikimundial-ws-ui-input formControlName="password" [label]="'Password'" [id]="'password'"
+                        [type]="'password'" [placeholder]="'type your password'">
+                    </dzikimundial-ws-ui-input>
                 </div>
                 <div class="fieldset-item">
                     <div class="buttons-container">
                         <dzikimundial-ws-ui-button type="submit" (click)="onSubmit()" [text]="'login'"
-                            [isFullWidth]="true" [isLoading]="isAuthLoading">
+                            [isFullWidth]="true" [isLoading]="isLoading">
                         </dzikimundial-ws-ui-button>
                     </div>
                 </div>

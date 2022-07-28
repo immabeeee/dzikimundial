@@ -1,4 +1,6 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { addDefaultWrapper } from 'apps/dzikimundial-admin-ui/.storybook/utils';
 import { TeamListFiltersComponent } from './team-list-filters.component';
 
 export default {
@@ -7,7 +9,8 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [],
-    })
+    }),
+    addDefaultWrapper(),
   ],
 } as Meta<TeamListFiltersComponent>;
 

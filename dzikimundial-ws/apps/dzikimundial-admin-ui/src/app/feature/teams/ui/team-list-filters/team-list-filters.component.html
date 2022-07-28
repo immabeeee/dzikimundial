@@ -1,6 +1,12 @@
+<ng-container *ngIf="listQuery$ | async"></ng-container>
+<ng-container *ngIf="filters$ | async"></ng-container>
+
 <form [formGroup]="formGroup">
     <div class="container">
-        <div class="grid">
+        <div class="dm-section-header-container">
+            <p>Filter list</p>
+        </div>
+        <div class="content-container">
             <dzikimundial-ws-ui-input formControlName="name" [label]="'Team'" [id]="'team'" [type]="'text'"
                 [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
             <dzikimundial-ws-ui-input formControlName="description" [label]="'Description'" [id]="'description'"

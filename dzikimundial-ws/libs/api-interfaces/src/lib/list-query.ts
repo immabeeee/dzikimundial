@@ -66,6 +66,12 @@ export class ListQuery {
     return new ListQuery(pageFirst, [...filters, filter], this.sort as Sort)
   }
 
+  updateFilters(filters: Filter[]): ListQuery {
+    const pageFirst = new Page(0, this.page.pageSize, this.page.totalElements, this.page.totalPages)
+
+    return new ListQuery(pageFirst, filters, this.sort as Sort)
+  }
+
   updateSort(sort: Sort): ListQuery {
     return new ListQuery(this.page, this.filters, sort)
   }

@@ -8,6 +8,8 @@ import { TeamsStateFacade } from '../../data-access/state/teams-state.facade'
 import { getRemoveTeamsView } from '../../data-access/state/teams-state.selectors'
 import { RouterTestingModule } from '@angular/router/testing'
 import { initialState } from '../../data-access/state/teams-state.reducer'
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { addDefaultWrapper } from 'apps/dzikimundial-admin-ui/.storybook/utils'
 
 export default {
   title: 'TeamItemComponent',
@@ -31,7 +33,7 @@ export default {
         TeamsStateFacade,
       ],
     }),
-    componentWrapperDecorator((story) => `<div style="background-color: var(--grey-200)">${story}</div>`),
+    addDefaultWrapper(),
   ],
 } as Meta<TeamItemComponent>
 

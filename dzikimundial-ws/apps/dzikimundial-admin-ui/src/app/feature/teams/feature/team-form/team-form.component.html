@@ -1,0 +1,21 @@
+<form [formGroup]="form" *ngIf="form && !isLoadingFormValue">
+    <div class="row">
+        <dzikimundial-ws-ui-input formControlName="name" [label]="'Team name'" [id]="'create-team-name'" [type]="'text'"
+            [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
+    </div>
+    <div class="row">
+        <dzikimundial-ws-ui-input formControlName="description" [label]="'Description'" [id]="'create-description'"
+            [type]="'text'" [placeholder]="'eg. Lorem ipsum dolor'">
+        </dzikimundial-ws-ui-input>
+    </div>
+    <div class="row">
+        <dzikimundial-ws-ui-input formControlName="logoUrlImage" [label]="'Logo url'" [id]="'create-team-logo-url'"
+            [type]="'text'" [placeholder]="'eg. Poland'">
+        </dzikimundial-ws-ui-input>
+    </div>
+    <div class="action-container">
+        <dzikimundial-ws-ui-button [text]="submitButtonTitle" (click)="handleSubmit()" [isDisabled]="isDisabled"
+            [isLoading]="isLoading">
+        </dzikimundial-ws-ui-button>
+    </div>
+</form>

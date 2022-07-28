@@ -18,7 +18,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           errorMsg = `Error: ${error.error.message}`
         } else {
           if (error.error && error.error.message) {
-            errorMsg = `Error Code: ${error.status},  Message: ${error.error.message.join(', ')}`
+            errorMsg = `Error Code: ${error.status},  Message: ${
+              typeof error.error.message === 'string' ? error.error.message : error.error.message.join(', ')
+            }`
           } else {
             errorMsg = `Error Code: ${error.status},  Message: ${error.message}`
           }

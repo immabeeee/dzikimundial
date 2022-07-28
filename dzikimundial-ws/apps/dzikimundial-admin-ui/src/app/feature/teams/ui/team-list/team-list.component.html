@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="dm-section-header-container">
+        <p>Team list</p>
+    </div>
+    <div class="content-container">
+        <ng-container *ngIf="teamsView$ | async as view">
+            <dzikimundial-ws-ui-message [type]="'error'" [message]="view.error" *ngIf="view.error"
+                data-test-id="dm-team-list-error-message">
+            </dzikimundial-ws-ui-message>
+            <dzikimundial-ws-ui-progress-bar *ngIf="view.isLoading" data-test-id="dm-team-list-progress-bar">
+            </dzikimundial-ws-ui-progress-bar>
+            <ng-container *ngIf="view.teams && view.teams.length === 0">
+                <dzikimundial-ws-ui-message [message]="'no content'" data-test-id="dm-team-list-empty-message">
+                </dzikimundial-ws-ui-message>
+            </ng-container>
+            <ng-container *ngIf="view.teams && view.teams.length > 0">
+                <ng-container *ngFor="let team of view.teams">
+                    <dzikimundial-ws-admin-team-item data-test-id="dm-team-list-item" [team]="team">
+                    </dzikimundial-ws-admin-team-item>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

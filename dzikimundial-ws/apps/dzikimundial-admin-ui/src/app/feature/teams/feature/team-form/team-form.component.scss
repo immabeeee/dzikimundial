@@ -1,0 +1,19 @@
+.row {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--grey-200);
+    color: var(--white-100);
+    font-weight: var(--font-700);
+}
+
+.action-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid var(--grey-100);
+    color: var(--white-100);
+    font-weight: var(--font-700);
+    background-color: var(--grey-300);
+}
