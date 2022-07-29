@@ -1,21 +1,38 @@
-<form [formGroup]="form" *ngIf="form && !isLoadingFormValue">
+<form [formGroup]="form" *ngIf="form" data-test-id="dm-team-form">
     <div class="row">
-        <dzikimundial-ws-ui-input formControlName="name" [label]="'Team name'" [id]="'create-team-name'" [type]="'text'"
-            [placeholder]="'eg. Poland'"></dzikimundial-ws-ui-input>
+        <dzikimundial-ws-ui-input formControlName="name" [label]="teamNameLabel" [id]="'team-name'" [type]="'text'"
+            [placeholder]="teamNamePlaceholder" data-test-id="dm-team-form-name-input"></dzikimundial-ws-ui-input>
+        <ng-container *ngIf="nameFormControl?.errors && (nameFormControl?.touched || nameFormControl?.dirty)">
+            <dzikimundial-ws-ui-validation-error [isHidden]="!nameFormControl?.errors?.required"
+                [message]="teamNameRequiredValidationMessage" data-test-id="dm-team-form-name-validation-error">
+            </dzikimundial-ws-ui-validation-error>
+        </ng-container>
     </div>
     <div class="row">
-        <dzikimundial-ws-ui-input formControlName="description" [label]="'Description'" [id]="'create-description'"
-            [type]="'text'" [placeholder]="'eg. Lorem ipsum dolor'">
+        <dzikimundial-ws-ui-input formControlName="description" [label]="teamDescriptionLabel" [id]="'team-description'"
+            [type]="'text'" [placeholder]="teamDescriptionPlaceholder" data-test-id="dm-team-form-description-input">
         </dzikimundial-ws-ui-input>
+        <ng-container *ngIf="nameFormControl?.errors && (nameFormControl?.touched || nameFormControl?.dirty)">
+            <dzikimundial-ws-ui-validation-error [isHidden]="!nameFormControl?.errors?.required"
+                [message]="teamDescriptionRequiredValidationMessage"
+                data-test-id="dm-team-form-description-validation-error">
+            </dzikimundial-ws-ui-validation-error>
+        </ng-container>
     </div>
     <div class="row">
-        <dzikimundial-ws-ui-input formControlName="logoUrlImage" [label]="'Logo url'" [id]="'create-team-logo-url'"
-            [type]="'text'" [placeholder]="'eg. Poland'">
+        <dzikimundial-ws-ui-input formControlName="logoUrlImage" [label]="teamLogoUrlLabel" [id]="'team-logo-url'"
+            [type]="'text'" [placeholder]="teamLogoUrlPlaceholder" data-test-id="dm-team-form-logo-url-input">
         </dzikimundial-ws-ui-input>
+        <ng-container
+            *ngIf="logoUrlImageFormControl?.errors && (logoUrlImageFormControl?.touched || logoUrlImageFormControl?.dirty)">
+            <dzikimundial-ws-ui-validation-error [isHidden]="!logoUrlImageFormControl?.errors?.required"
+                [message]="teamLogoUrlRequiredValidationMessage" data-test-id="dm-team-form-logo-url-validation-error">
+            </dzikimundial-ws-ui-validation-error>
+        </ng-container>
     </div>
     <div class="action-container">
         <dzikimundial-ws-ui-button [text]="submitButtonTitle" (click)="handleSubmit()" [isDisabled]="isDisabled"
-            [isLoading]="isLoading">
+            [isLoading]="isLoading" data-test-id="dm-team-form-submit-button">
         </dzikimundial-ws-ui-button>
     </div>
 </form>

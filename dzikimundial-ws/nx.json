@@ -102,6 +102,9 @@
     "ui-tooltip": {
       "tags": []
     },
+    "ui-validation-error": {
+      "tags": []
+    },
     "utils": {
       "tags": []
     }

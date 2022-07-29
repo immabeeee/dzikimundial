@@ -12,7 +12,7 @@ import { generateDefaultListQuery } from '@dzikimundial-ws/api-interfaces'
 import { addDefaultWrapper } from './../../../../../../.storybook/utils'
 
 export default {
-  title: 'TeamsBrowserPageComponent',
+  title: 'TeamModule/Feature/TeamsBrowserPageComponent',
   component: TeamsBrowserPageComponent,
   decorators: [
     moduleMetadata({

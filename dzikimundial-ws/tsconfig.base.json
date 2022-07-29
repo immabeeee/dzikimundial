@@ -33,6 +33,7 @@
       "@dzikimundial-ws/ui-progress-bar": ["libs/ui-progress-bar/src/index.ts"],
       "@dzikimundial-ws/ui-team-info": ["libs/ui-team-info/src/index.ts"],
       "@dzikimundial-ws/ui-tooltip": ["libs/ui-tooltip/src/index.ts"],
+      "@dzikimundial-ws/ui-validation-error": ["libs/ui-validation-error/src/index.ts"],
       "@dzikimundial-ws/utils": ["libs/utils/src/index.ts"]
     }
   },

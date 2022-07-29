@@ -14,13 +14,13 @@
     </div>
     <div class="content-container">
         <div class="dm-section-header-container">
-            <p>Create new team</p>
+            <p data-test-id="dm-team-create-section-title">Create new team</p>
         </div>
         <div class="form-container">
-            <p *ngIf="view.isLoading">LOADING</p>
-            <dzikimundial-ws-admin-team-form [isLoading]="view.isLoading"
-                [isDisabled]="view.isLoading" [isEditMode]="false"
-                (submitResult)="handleSubmitResult($event)">
+            <dzikimundial-ws-ui-progress-bar *ngIf="view.isLoading" data-test-id="dm-team-create-progress-bar">
+            </dzikimundial-ws-ui-progress-bar>
+            <dzikimundial-ws-admin-team-form [isLoading]="view.isLoading" [isDisabled]="view.isLoading"
+                [isEditMode]="false" (submitResult)="handleSubmitResult($event)" data-test-id="dm-team-create-form">
             </dzikimundial-ws-admin-team-form>
         </div>
     </div>

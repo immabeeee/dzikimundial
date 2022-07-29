@@ -12,7 +12,7 @@ import { initialState } from '../../data-access/state/teams-state.reducer'
 import { addDefaultWrapper } from 'apps/dzikimundial-admin-ui/.storybook/utils'
 
 export default {
-  title: 'TeamItemComponent',
+  title: 'TeamModule/Ui/TeamItemComponent',
   component: TeamItemComponent,
   decorators: [
     moduleMetadata({

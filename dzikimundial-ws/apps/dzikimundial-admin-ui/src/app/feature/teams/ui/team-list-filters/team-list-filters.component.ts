@@ -29,6 +29,7 @@ export class TeamListFiltersComponent implements OnDestroy {
   public formGroup: FormGroup
   public filters$!: Observable<Filter[]>
   public listQuery$: Observable<ListQuery | null> = this.teamsStateFacade.teamListView$.pipe(
+    tap((vm: TeamListView) => this.teamListFiltersFormService.fillForm(this.formGroup, vm?.listQuery?.filters)),
     map((vm: TeamListView) => vm.listQuery),
   )
   private subscriptions: Subscription = new Subscription()

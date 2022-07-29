@@ -8,6 +8,7 @@ import { TeamItemModule } from '../../ui/team-item/team-item.module'
 import { UiButtonModule } from '@dzikimundial-ws/ui-button'
 import { TeamService } from '../../data-access/team.service'
 import { TeamFormModule } from '../team-form/team-form.module'
+import { UiProgressBarModule } from '@dzikimundial-ws/ui-progress-bar'
 
 @NgModule({
   declarations: [TeamCreatePageComponent],
@@ -17,9 +18,10 @@ import { TeamFormModule } from '../team-form/team-form.module'
     UiNavLinkModule,
     TeamItemModule,
     UiButtonModule,
-    TeamFormModule
+    TeamFormModule,
+    UiProgressBarModule
   ],
-  exports: [],
+  exports: [TeamCreatePageComponent],
   providers: [TeamFormService, TeamService],
 })
 export class TeamCreatePageModule {}

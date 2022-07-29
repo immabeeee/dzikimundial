@@ -11,7 +11,7 @@ import { of } from 'rxjs'
 import { addDefaultWrapper } from 'apps/dzikimundial-admin-ui/.storybook/utils'
 
 export default {
-  title: 'TeamListComponent',
+  title: 'TeamModule/Ui/TeamListComponent',
   component: TeamListComponent,
   decorators: [
     moduleMetadata({

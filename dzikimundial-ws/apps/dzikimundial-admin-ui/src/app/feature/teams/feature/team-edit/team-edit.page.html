@@ -15,15 +15,20 @@
         </div>
         <div class="content-container">
             <div class="dm-section-header-container">
-                <p>Edit team<ng-container *ngIf="teamView.team">: {{teamView.team.name}}</ng-container>
+                <p data-test-id="dm-team-edit-section-title">Edit team<ng-container *ngIf="teamView.team">:
+                        {{teamView.team.name}}</ng-container>
                 </p>
             </div>
             <div class="form-container">
-                <dzikimundial-ws-ui-progress-bar *ngIf="teamView.isLoading || updateView.isLoading">
+                <dzikimundial-ws-ui-progress-bar *ngIf="teamView.isLoading || updateView.isLoading"
+                    data-test-id="dm-team-edit-progress-bar">
                 </dzikimundial-ws-ui-progress-bar>
-                <dzikimundial-ws-admin-team-form [isLoadingFormValue]="teamView.isLoading"
+                <dzikimundial-ws-ui-message [type]="'error'" [message]="teamView.error" *ngIf="teamView.error"
+                    data-test-id="dm-team-edit-error">
+                </dzikimundial-ws-ui-message>
+                <dzikimundial-ws-admin-team-form *ngIf="teamView.team && !teamView.error"
                     [isLoading]="updateView.isLoading" [isDisabled]="updateView.isLoading" [isEditMode]="true"
-                    (submitResult)="handleSubmitResult($event)" [team]="teamView.team">
+                    (submitResult)="handleSubmitResult($event)" [team]="teamView.team" data-test-id="dm-team-edit-form">
                 </dzikimundial-ws-admin-team-form>
             </div>
         </div>

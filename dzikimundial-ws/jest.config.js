@@ -22,5 +22,6 @@ module.exports = {
     '<rootDir>/libs/ui-progress-bar',
     '<rootDir>/libs/test-utils',
     '<rootDir>/libs/ui-message',
+    '<rootDir>/libs/ui-validation-error',
   ],
 }
