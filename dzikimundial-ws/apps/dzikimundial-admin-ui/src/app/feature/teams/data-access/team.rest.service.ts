@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { delay, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import {
   CreateTeamRequest,
   CreateTeamResponse,

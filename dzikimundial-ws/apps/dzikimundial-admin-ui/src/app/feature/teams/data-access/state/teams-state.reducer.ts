@@ -122,8 +122,8 @@ const teamsStateReducer = createReducer(
     removeTeamsLoading: findTeamLoading(state.removeTeamsLoading, action.id)
       ? filterTeamsLoading(state.removeTeamsLoading, action.id)
       : state.removeTeamsLoading,
-    removeTeamsError: filterRemovingTeamError(state.removeTeamsError, action.id)
-      ? state.removeTeamsError
+    removeTeamsError: findRemovingTeamError(state.removeTeamsError, action.id)
+      ? state.removeTeamsError.map((e) => (e.id === action.id ? { ...e, error: action.error } : e))
       : [...state.removeTeamsError, { id: action.id, error: action.error }],
   })),
   on(TeamsStateActions.fetchTeam, (state, action) => ({

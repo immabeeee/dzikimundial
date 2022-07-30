@@ -4,11 +4,9 @@ import { RouterTestingModule } from '@angular/router/testing'
 import { MockSelector, MockStore, provideMockStore } from '@ngrx/store/testing'
 import { TeamsStateFacade } from '../../data-access/state/teams-state.facade'
 import { TeamsStateEntity } from '../../data-access/state/teams-state.models'
-import { getCreateTeamView, getTeamView } from '../../data-access/state/teams-state.selectors'
+import { getCreateTeamView } from '../../data-access/state/teams-state.selectors'
 import { TeamCreatePageComponent } from './team-create.page'
 import { TeamCreatePageModule } from './team-create.page.module'
-import * as teamsTestData from '@dzikimundial-ws/test-utils'
-import { TeamName } from '@dzikimundial-ws/api-interfaces'
 import { By } from '@angular/platform-browser'
 
 describe('TeamCreatePageComponent', () => {
