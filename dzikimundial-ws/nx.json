@@ -30,10 +30,16 @@
     "api": {
       "tags": []
     },
+    "api-e2e": {
+      "tags": []
+    },
     "api-interfaces": {
       "tags": []
     },
     "assets": {
+      "tags": []
+    },
+    "auth": {
       "tags": []
     },
     "dzikimundial-admin-ui": {
@@ -60,6 +66,9 @@
     "pipes-sort-array-by-key": {
       "tags": []
     },
+    "test-utils": {
+      "tags": []
+    },
     "theme": {
       "tags": []
     },
@@ -72,13 +81,31 @@
     "ui-icon-button": {
       "tags": []
     },
+    "ui-input": {
+      "tags": []
+    },
     "ui-logo": {
+      "tags": []
+    },
+    "ui-message": {
       "tags": []
     },
     "ui-nav-link": {
       "tags": []
     },
+    "ui-progress-bar": {
+      "tags": []
+    },
+    "ui-team-info": {
+      "tags": []
+    },
     "ui-tooltip": {
+      "tags": []
+    },
+    "ui-validation-error": {
+      "tags": []
+    },
+    "utils": {
       "tags": []
     }
   }

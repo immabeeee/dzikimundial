@@ -1,0 +1,18 @@
+<ng-container *ngIf="listQuery$ | async"></ng-container>
+<ng-container *ngIf="filters$ | async"></ng-container>
+
+<form [formGroup]="formGroup">
+    <div class="container">
+        <div class="dm-section-header-container">
+            <p data-test-id="dm-team-list-filter-title">Filter list</p>
+        </div>
+        <div class="content-container">
+            <dzikimundial-ws-ui-input formControlName="name" [label]="'Team'" [id]="'team'" [type]="'text'"
+                [placeholder]="'eg. Poland'" data-test-id="dm-team-list-filter-name-input"></dzikimundial-ws-ui-input>
+            <dzikimundial-ws-ui-input formControlName="description" [label]="'Description'" [id]="'description'"
+                [type]="'text'" [placeholder]="'eg. lorem ipsum'" [description]="'You can provide more than 1 team'"
+                data-test-id="dm-team-list-filter-description-input">
+            </dzikimundial-ws-ui-input>
+        </div>
+    </div>
+</form>

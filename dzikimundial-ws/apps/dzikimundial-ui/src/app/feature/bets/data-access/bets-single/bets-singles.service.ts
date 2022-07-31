@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, from, GroupedObservable, Observable } from 'rxjs'
 import { BetSingle, BetSinglesGroupedByDate, UpdateBetSingleReq } from '../../models/bets-single/bets-single.model'
-import * as testData from '../../test/singles.test-data'
+import * as testData from '@dzikimundial-ws/test-utils'
 import { groupBy, mergeMap, map, toArray, reduce } from 'rxjs/operators'
 import * as moment from 'moment'
 

@@ -1,0 +1,45 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    background-image: radial-gradient(var(--grey-100) 2px, transparent 2px), radial-gradient(var(--grey-100) 2px, transparent 2px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    background-color: var(--grey-300);
+
+    .form-wrapper {
+
+        padding: 20px;
+        background-color: var(--grey-200);
+        border: 2px solid var(--grey-100);
+        border-radius: 10px;
+
+        form {
+            width: 400px;
+
+            .fieldset {
+                border: none !important;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                gap: 20px;
+
+                .buttons-container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+
+                    dzikimundial-ws-ui-button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

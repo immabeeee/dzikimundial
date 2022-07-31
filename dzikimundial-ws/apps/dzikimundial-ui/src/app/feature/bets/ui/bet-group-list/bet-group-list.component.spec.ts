@@ -1,7 +1,7 @@
 import { DebugElement } from '@angular/core'
 import { TestBed, async, ComponentFixture } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
-import * as testData from '../../test/groups.test-data'
+import * as testData from '@dzikimundial-ws/test-utils'
 import { BetGroupListComponent } from './bet-group-list.component'
 import { BetsGroupListModule } from './bet-group-list.module'
 

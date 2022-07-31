@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable } from 'rxjs'
-import { BetGroup } from '../../models/bets-groups/bets-group.model'
-import * as testData from '../../test/groups.test-data'
+import { BetGroup } from '@dzikimundial-ws/api-interfaces'
+import * as testData from '@dzikimundial-ws/test-utils'
 
 @Injectable()
 export class BetsGroupsService {

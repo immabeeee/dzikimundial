@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
 @Component({
   selector: 'dzikimundial-ws-ui-logo',
   templateUrl: './ui-logo.component.html',
   styleUrls: ['./ui-logo.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UiLogoComponent{
+export class UiLogoComponent {
+  @Input() isBig = false;
 }

@@ -2,9 +2,10 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { BetsGroupTeamModule } from './bet-group-team.module'
 import { BetsGroupTeamComponent } from './bet-group-team.component'
-import * as teamsTestData from '../../test/teams.test-data'
-import { TeamName } from '../../models/bets-groups/bets-group.model'
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import * as teamsTestData from '@dzikimundial-ws/test-utils'
 import { ChangeDetectionStrategy } from '@angular/core'
+import { TeamName } from '@dzikimundial-ws/api-interfaces'
 
 let fixture: ComponentFixture<BetsGroupTeamComponent>
 let component: BetsGroupTeamComponent

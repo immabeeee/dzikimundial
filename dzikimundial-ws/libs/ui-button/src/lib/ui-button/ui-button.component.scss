@@ -30,6 +30,11 @@
         cursor: default;
         animation: none;
     }
+
+    &.fullWidth{
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 

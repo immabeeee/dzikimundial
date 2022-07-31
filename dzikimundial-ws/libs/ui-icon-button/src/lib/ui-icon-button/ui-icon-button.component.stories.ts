@@ -20,3 +20,22 @@ export const Primary = Template.bind({})
 Primary.args = {
   icon: 'gg-close',
 }
+
+export const PrimaryLoading = Template.bind({})
+PrimaryLoading.args = {
+  icon: 'gg-close',
+  isLoading: true,
+}
+
+export const PrimaryDisabled = Template.bind({})
+PrimaryDisabled.args = {
+  icon: 'gg-close',
+  isDisabled: true,
+}
+
+export const PrimaryDisabledAndLoading = Template.bind({})
+PrimaryDisabledAndLoading.args = {
+  icon: 'gg-close',
+  isLoading: true,
+  isDisabled: true,
+}

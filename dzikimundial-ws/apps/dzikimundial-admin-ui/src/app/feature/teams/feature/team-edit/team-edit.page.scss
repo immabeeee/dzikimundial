@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100%;
+    width: 100%;
+
+    .content-container {
+        .form-container {
+            border-bottom: 1px solid var(--grey-100);
+        }
+    }
+}

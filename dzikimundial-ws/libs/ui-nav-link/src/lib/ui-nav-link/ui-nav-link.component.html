@@ -1,4 +1,8 @@
 <a class="nav-link-wrapper" tabindex="0" routerLinkActive #rla="routerLinkActive" [routerLink]="link" [ngClass]="{
     'active': rla.isActive,
     'secondary': isSecondary
-  }" [style.--alignText]="alignText">{{text}}</a>
+  }" [style.--alignText]="alignText" data-test-id="dm-nav-link-anchor">
+  <ng-container *ngIf="isReturnLink">
+    < </ng-container>
+      {{text}}
+</a>

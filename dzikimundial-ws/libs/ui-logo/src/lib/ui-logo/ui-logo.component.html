@@ -1,8 +1,9 @@
-<div class="logo-container">
-    <p>
-        <span></span>
-        <span></span>
-        dzikimundial
-    </p>
+<div class="logo-container" data-test-id="dm-logo-container">
+  <p [ngClass]="{
+        'big': isBig
+      }" data-test-id="dm-logo-paragraph">
+    <span></span>
+    <span></span>
+    dzikimundial
+  </p>
 </div>
-

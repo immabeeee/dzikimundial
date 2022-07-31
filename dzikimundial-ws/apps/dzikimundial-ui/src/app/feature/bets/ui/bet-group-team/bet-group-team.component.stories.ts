@@ -1,5 +1,5 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular'
-import * as testData from '../../test/groups.test-data'
+import * as testData from '@dzikimundial-ws/test-utils'
 import { BetsGroupTeamComponent } from './bet-group-team.component'
 import { BetsGroupTeamModule } from './bet-group-team.module'
 

@@ -1,0 +1,9 @@
+<div class="container" [ngClass]="{
+    'error': control?.errors && (control?.touched || control?.dirty)
+  }" data-test-id="dm-input-container">
+    <label *ngIf="label" data-test-id="dm-input-label">{{label}}<span class="required"
+            *ngIf="isRequired">*</span></label>
+    <input placeholder="{{placeholder}}" type="{{type}}" [value]="value" [disabled]="disabled" id="{{id}}"
+        (input)="onChange($any($event.target).value)" (blur)="onTouched()" data-test-id="dm-input" />
+    <small class="description" *ngIf="description" data-test-id="dm-input-description">{{description}}</small>
+</div>

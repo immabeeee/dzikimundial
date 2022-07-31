@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+        padding-left: 5px;
+        font-size: 14px;
+        color: var(--grey-50);
+
+        .required {
+            color: var(--blue-100);
+            font-weight: var(--font-700);
+            font-size: var(--font-xl);
+        }
+    }
+
+    input {
+        background-color: var(--brown-100);
+        height: 70px;
+        width: 100%;
+        border: 1px solid var(--grey-300);
+        padding: 10px;
+        border-radius: 5px;
+        color: var(--white-100);
+        font-size: 16px;
+
+        &:active,
+        &:focus,
+        &:focus-visible {
+            border: 1px solid var(--blue-200);
+            outline-style: var(--blue-200);
+        }
+    }
+
+    .description {
+        color: var(--grey-75) !important;
+    }
+
+    &.error {
+        label {
+            color: var(--red-100);
+
+            .required {
+                color: var(--red-100);
+            }
+        }
+
+        input {
+            border: 1px solid var(--red-100);
+            color: var(--red-100);
+        }
+    }
+}

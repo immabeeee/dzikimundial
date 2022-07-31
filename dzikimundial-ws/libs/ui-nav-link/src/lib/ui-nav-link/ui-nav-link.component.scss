@@ -41,27 +41,5 @@ a {
         color: var(--white-100);
         transition: 0.5s;
     }
-
-    &:hover {
-        animation: boxshadow 2s infinite forwards ease-in-out
-    }
-
-    &:active,
-    &:focus {
-        animation: boxshadow 1s normal forwards ease-in-out
-    }
 }
 
-@keyframes boxshadow {
-    0% {
-        box-shadow: 0 0 0 0 rgba(44, 44, 44, 0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
-    }
-}

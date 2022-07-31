@@ -54,3 +54,10 @@ DisabledTextOnly.args = {
   text: 'lorem',
   isDisabled: true,
 }
+
+export const PrimaryFullWidth = Template.bind({})
+PrimaryFullWidth.args = {
+  text: 'lorem',
+  icon: 'gg-close',
+  isFullWidth: true
+}

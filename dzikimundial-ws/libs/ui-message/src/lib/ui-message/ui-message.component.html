@@ -1,0 +1,18 @@
+<div *ngIf="!isHidden" class="container" [ngClass]="{
+    'error': type === 'error',
+    'warn': type === 'warn',
+    'info': type === 'info',
+    'success': type === 'success',
+    'primary': type === 'primary'
+  }" data-test-id="dm-message-container">
+    <div class="message-container">
+        <i [ngClass]="{
+            'gg-smile-sad': type === 'error',
+            'gg-smile-no-mouth': type === 'warn' || type === 'primary',
+            'gg-smile-none': type === 'info',
+            'gg-smile-mouth-open': type === 'success'
+          }" data-test-id="dm-message-icon"></i>
+        <p data-test-id="dm-message-message">{{message}}</p>
+    </div>
+    <i class="gg-close" (click)="handleHideMessage()" data-test-id="dm-message-remove-icon"></i>
+</div>

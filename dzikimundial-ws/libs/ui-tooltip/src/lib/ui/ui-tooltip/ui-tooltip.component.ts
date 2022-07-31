@@ -1,9 +1,10 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'dzikimundial-ws-ui-tooltip',
   templateUrl: './ui-tooltip.component.html',
   styleUrls: ['./ui-tooltip.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiTooltipComponent implements OnInit {
   @ViewChild('container', { static: true }) containerRef!: ElementRef<HTMLElement>

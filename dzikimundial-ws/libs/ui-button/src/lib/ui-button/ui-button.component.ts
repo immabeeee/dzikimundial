@@ -11,4 +11,5 @@ export class UiButtonComponent {
   @Input() text!: string
   @Input() isLoading = false
   @Input() isDisabled = false
+  @Input() isFullWidth = false;
 }

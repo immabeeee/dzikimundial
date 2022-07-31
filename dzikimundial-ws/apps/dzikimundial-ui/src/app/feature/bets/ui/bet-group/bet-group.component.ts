@@ -1,7 +1,7 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { BetsGroupTeamsService } from '../../data-access/bets-groups/bets-group-teams.service'
-import { BetGroup, BetGroupTeam } from '../../models/bets-groups/bets-group.model'
+import { BetGroup, BetGroupTeam } from '@dzikimundial-ws/api-interfaces'
 
 @Component({
   selector: 'dzikimundial-ws-bet-group',

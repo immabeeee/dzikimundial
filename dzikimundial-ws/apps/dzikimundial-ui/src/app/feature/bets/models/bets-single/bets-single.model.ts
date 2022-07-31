@@ -1,4 +1,4 @@
-import { BetGroupTeam } from '../bets-groups/bets-group.model'
+import { BetGroupTeam } from '@dzikimundial-ws/api-interfaces'
 
 export interface BetSingle {
   id: string

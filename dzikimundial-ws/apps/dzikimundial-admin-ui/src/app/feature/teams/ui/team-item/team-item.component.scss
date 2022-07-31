@@ -1,0 +1,30 @@
+.single-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--grey-200);
+    height: 80px;
+    border-bottom: 1px solid var(--grey-100);
+    border-right: 1px solid var(--grey-100);
+    color: var(--white-100);
+    font-weight: var(--font-700);
+
+    &:hover {
+        background-color: var(--grey-250);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+    .menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    dzikimundial-ws-ui-team-info {
+        width: 130px !important;
+    }
+}

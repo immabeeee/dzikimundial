@@ -1,0 +1,50 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    color: var(--white-100);
+    font-weight: var(--font-500);
+
+    &.error {
+        background-color: var(--error-100);
+        border: 1px solid var(--error-200);
+    }
+
+    &.warn {
+        background-color: var(--warn-100);
+        border: 1px solid var(--warn-200);
+    }
+
+    &.info {
+        background-color: var(--info-100);
+        border: 1px solid var(--info-200);
+    }
+
+    &.success {
+        background-color: var(--success-100);
+        border: 1px solid var(--success-200);
+    }
+
+    &.primary {
+        background-color: transparent;
+        border: var(--grey-100);
+    }
+
+    &:hover {
+        transition: 0.5s;
+    }
+
+    .message-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gg-close {
+        cursor: pointer;
+    }
+}

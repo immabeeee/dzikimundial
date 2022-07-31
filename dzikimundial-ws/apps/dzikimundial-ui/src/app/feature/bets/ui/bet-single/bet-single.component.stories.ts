@@ -1,8 +1,8 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { moduleMetadata, Story, Meta } from '@storybook/angular'
 import { ToastrModule } from 'ngx-toastr'
-import { TeamName } from '../../models/bets-groups/bets-group.model'
-import * as testData from '../../test/teams.test-data'
+import { TeamName } from '@dzikimundial-ws/api-interfaces'
+import * as testData from '@dzikimundial-ws/test-utils';
 import { BetSingleComponent } from './bet-single.component'
 import { BetsSingleModule } from './bet-single.module'
 
