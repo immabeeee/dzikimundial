@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { from, Observable } from 'rxjs'
-import { map, switchMap } from 'rxjs/operators'
+import { from, Observable, throwError } from 'rxjs'
+import { catchError, map, switchMap } from 'rxjs/operators'
 import * as bcrypt from 'bcrypt'
 import { InjectRepository } from '@nestjs/typeorm'
 import { UserEntity } from '../model/user.entity'
@@ -54,7 +54,11 @@ export class AuthService {
           }
         }),
       )
-      .pipe(map((jwt: string) => ({ token: jwt })))
+      .pipe(
+        map((jwt: string) => {
+          return { token: jwt }
+        }),
+      )
   }
 
   findUserById(id: string): Observable<User> {

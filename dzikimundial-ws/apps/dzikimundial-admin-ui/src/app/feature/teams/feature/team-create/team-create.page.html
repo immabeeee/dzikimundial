@@ -1,11 +1,11 @@
 <div class="container" *ngIf="createTeamView$ | async as view">
     <div class="dm-sidebar-conatiner">
         <div class="dm-section-header-container">
-            <p>Menu</p>
+            <p data-test-id="dm-team-create-menu-title">Menu</p>
         </div>
         <ul class="menu-list">
             <li class="menu-item">
-                <dzikimundial-ws-ui-nav-link data-test-id="nav-link-single" [text]="ROUTER_LINK.TEAMS"
+                <dzikimundial-ws-ui-nav-link data-test-id="dm-team-create-menu-back-button" [text]="ROUTER_LINK.TEAMS"
                     [isSecondary]="true" [isReturnLink]="true" [alignText]="'end'"
                     [link]="ROUTER_LINK.PREV_RELATIVE_TO_PARENT">
                 </dzikimundial-ws-ui-nav-link>

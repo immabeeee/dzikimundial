@@ -26,14 +26,15 @@
             </li>
         </ul>
     </div>
-    <div class="user-container">
-        <p>Łukasz</p>
+    <div class="user-container" *ngIf="user$ | async as user">
+        <p data-test-id="dm-navbar-menu-theme-button">{{user?.login}}</p>
         <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip
             [tooltipContent]="currentTheme === 'primary' ? 'light theme' : 'dark theme'"
-            [icon]="currentTheme === 'primary' ? 'gg-sun' : 'gg-moon'" (click)="handleChangeTheme()">
+            [icon]="currentTheme === 'primary' ? 'gg-sun' : 'gg-moon'" (click)="handleChangeTheme()"
+            data-test-id="dm-navbar-menu-theme-button">
         </dzikimundial-ws-ui-icon-button>
         <dzikimundial-ws-ui-icon-button dzikimundialWsTooltip [tooltipContent]="'logout'" [icon]="'gg-log-off'"
-            (click)="handleLougout()">
+            (click)="handleLougout()" data-test-id="dm-navbar-menu-logout-button">
         </dzikimundial-ws-ui-icon-button>
     </div>
 </nav>

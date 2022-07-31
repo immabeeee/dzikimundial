@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { from, map, Observable, switchMap, tap } from 'rxjs'
 import { InjectRepository } from '@nestjs/typeorm'
-import { DeleteResult, Like, Repository } from 'typeorm'
+import { DeleteResult, Like, Raw, Repository } from 'typeorm'
 import {
   CreateTeamResponse,
   GetTeamListRequest,
@@ -62,7 +62,7 @@ export class TeamService {
       filters.length > 0 &&
       filters.map((filter) => {
         return {
-          [`${filter.name}`]: Like(`%${filter.value}%`),
+          [`${filter.name}`]: Raw((alias) => `LOWER(${alias}) Like '%${filter.value.toLowerCase()}%'`),
         }
       })
 

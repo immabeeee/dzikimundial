@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
-import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs'
+import { BehaviorSubject, from, map, Observable, of, switchMap } from 'rxjs'
 import { AuthRestService } from './auth.rest.service'
 import { JwtService } from './jwt.service'
-import { LoginUserRequest, LoginUserResponse, Role, User } from '@dzikimundial-ws/api-interfaces'
+import { DecodedToken, LoginUserRequest, LoginUserResponse, Role, User } from '@dzikimundial-ws/api-interfaces'
 
 @Injectable()
 export class AuthService {
-  private user$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null)
+  private decodedToken$: BehaviorSubject<DecodedToken | null> = new BehaviorSubject<DecodedToken | null>(null)
 
   constructor(private authRestService: AuthRestService, private jwtService: JwtService, private router: Router) {}
 
   get isUserLoggedIn(): Observable<boolean> {
-    return this.user$.asObservable().pipe(
-      switchMap((user: User | null) => {
-        const isUserAuthenticated = !!user
+    return this.decodedToken$.asObservable().pipe(
+      switchMap((decodedToken: DecodedToken | null) => {
+        const isUserAuthenticated = !!decodedToken
         return of(isUserAuthenticated)
       }),
     )
   }
 
+  get loggedUser$(): Observable<User | undefined> {
+    return this.decodedToken$.asObservable().pipe(switchMap((decodedToken) => of(decodedToken?.user)))
+  }
+
   get userRole(): Observable<Role | null> {
-    return this.user$.asObservable().pipe(
-      switchMap((user: User | null) => {
-        return user ? of(user?.role) : of(null)
+    return this.decodedToken$.asObservable().pipe(
+      switchMap((decodedToken: DecodedToken | null) => {
+        return decodedToken?.user ? of(decodedToken.user?.role) : of(null)
       }),
     )
   }
@@ -43,19 +47,19 @@ export class AuthService {
 
   public isUnexpiredTokenInStorage(): Observable<boolean> {
     return of(this.jwtService.getDecodedToken()).pipe(
-      map((decodedToken: any | null) => {
+      map((decodedToken: DecodedToken | null) => {
         if (!decodedToken || this.isTokenExpired(decodedToken.exp)) {
           return false
         }
 
-        this.user$.next(decodedToken)
+        this.decodedToken$.next(decodedToken)
         return true
       }),
     )
   }
 
   public logout(): void {
-    this.user$.next(null)
+    this.decodedToken$.next(null)
     this.jwtService.clearToken()
     this.router.navigateByUrl('/auth')
   }
@@ -65,7 +69,7 @@ export class AuthService {
 
     this.jwtService.saveToken(token)
     const decodedToken: any | null = this.jwtService.getDecodedToken()
-    this.user$.next(decodedToken)
+    this.decodedToken$.next(decodedToken)
     this.router.navigateByUrl(redirect)
   }
 

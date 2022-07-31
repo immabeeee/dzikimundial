@@ -1,4 +1,4 @@
-<div class="single-container" *ngIf="team">
+<div class="single-container" *ngIf="team" attr.data-test-id="dm-team-item-team-info-{{team.id}}">
     <div class="date-container">
         <p data-test-id="dm-team-item-team-info">
             <dzikimundial-ws-ui-team-info [team]="team" [isReversed]="true"></dzikimundial-ws-ui-team-info>
@@ -18,4 +18,3 @@
         </ng-container>
     </div>
 </div>
-

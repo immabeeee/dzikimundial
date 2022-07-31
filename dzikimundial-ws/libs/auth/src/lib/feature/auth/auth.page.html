@@ -7,18 +7,18 @@
             <fieldset class="fieldset">
                 <div class="fieldset-item">
                     <dzikimundial-ws-ui-input formControlName="login" [label]="'Login'" [id]="'login'" [type]="'text'"
-                        [placeholder]="'type your login'">
+                        [placeholder]="'type your login'" data-test-id="dm-login-input">
                     </dzikimundial-ws-ui-input>
                 </div>
                 <div class="fieldset-item">
                     <dzikimundial-ws-ui-input formControlName="password" [label]="'Password'" [id]="'password'"
-                        [type]="'password'" [placeholder]="'type your password'">
+                        [type]="'password'" [placeholder]="'type your password'" data-test-id="dm-password-input">
                     </dzikimundial-ws-ui-input>
                 </div>
                 <div class="fieldset-item">
                     <div class="buttons-container">
                         <dzikimundial-ws-ui-button type="submit" (click)="onSubmit()" [text]="'login'"
-                            [isFullWidth]="true" [isLoading]="isLoading">
+                            [isFullWidth]="true" [isLoading]="isLoading" data-test-id="dm-login-submit-button">
                         </dzikimundial-ws-ui-button>
                     </div>
                 </div>

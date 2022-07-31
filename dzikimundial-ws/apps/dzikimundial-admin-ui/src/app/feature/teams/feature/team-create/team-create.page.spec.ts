@@ -46,7 +46,7 @@ describe('TeamCreatePageComponent', () => {
 
     // given
     const previousPageButton: HTMLElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-single"]'),
+      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-create-team"]'),
     )?.nativeElement
     const sectionTitleParagraph: HTMLParagraphElement = fixture.debugElement.query(
       By.css('p[data-test-id="dm-team-create-section-title"]'),
@@ -82,7 +82,7 @@ describe('TeamCreatePageComponent', () => {
 
     // given
     const previousPageButton: HTMLElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-single"]'),
+      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-create-team"]'),
     )?.nativeElement
     const sectionTitleParagraph: HTMLParagraphElement = fixture.debugElement.query(
       By.css('p[data-test-id="dm-team-create-section-title"]'),

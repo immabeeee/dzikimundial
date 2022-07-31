@@ -42,7 +42,7 @@ describe('TeamsBrowserPageComponent', () => {
       By.css('dzikimundial-ws-admin-team-list-filters[data-test-id="dm-teams-browser-filters"]'),
     )?.nativeElement
     const navLink: HTMLElement = fixture.debugElement.query(
-      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-single"]'),
+      By.css('dzikimundial-ws-ui-nav-link[data-test-id="nav-link-create-team"]'),
     )?.nativeElement
     const teamList: HTMLElement = fixture.debugElement.query(
       By.css('dzikimundial-ws-admin-team-list[data-test-id="dm-teams-browser-team-list"]'),

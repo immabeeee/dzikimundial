@@ -42,20 +42,12 @@ export class TeamListFiltersComponent implements OnDestroy {
     this.formGroup = this.teamListFiltersFormService.createEmptyForm()
 
     this.filters$ = combineLatest(
-      this.formGroup.controls.name.valueChanges.pipe(
-        startWith(this.formGroup.controls.name.value),
-        debounceTime(500),
-        distinctUntilChanged(),
-      ),
-      this.formGroup.controls.description.valueChanges.pipe(
-        startWith(this.formGroup.controls.description.value),
-        debounceTime(500),
-        distinctUntilChanged(),
-      ),
+      this.formGroup.controls.name.valueChanges.pipe(debounceTime(500), distinctUntilChanged()),
+      this.formGroup.controls.description.valueChanges.pipe(debounceTime(500), distinctUntilChanged()),
     ).pipe(
-      map(([nameValue, descriptionValue]: [string, string]) =>
-        [new Filter('name', nameValue), new Filter('description', descriptionValue)].filter((e) => e.value),
-      ),
+      map(([nameValue, descriptionValue]: [string, string]) => {
+        return [new Filter('name', nameValue), new Filter('description', descriptionValue)].filter((e) => e.value)
+      }),
       tap((filters: Filter[]) => this.fetchTeams(filters)),
     )
   }
@@ -69,7 +61,7 @@ export class TeamListFiltersComponent implements OnDestroy {
       .pipe(
         take(1),
         filter((listQuery) => JSON.stringify(listQuery?.filters) !== JSON.stringify(filters)),
-        skipWhile(() => !filters || filters.length === 0),
+        skipWhile(() => !filters),
         tap((listQuery: ListQuery | null) => {
           const newListQuery = listQuery ? listQuery : generateDefaultListQuery()
           this.teamsService.fetchTeams(newListQuery.updateFilters(filters))

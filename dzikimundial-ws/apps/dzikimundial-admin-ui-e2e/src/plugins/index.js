@@ -19,4 +19,10 @@ module.exports = (on, config) => {
 
   // Preprocess Typescript file using Nx helper
   on('file:preprocessor', preprocessTypescript(config))
+  on('after:spec', (_, results) => {
+    return fs.unlinkSync(results.video)
+  })
+  on('after:run', () => {
+    fs.rmdirSync(`cypress/videos`, { recursive: true })
+  })
 }

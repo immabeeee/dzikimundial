@@ -6,6 +6,12 @@ export interface User {
   role: Role
 }
 
+export interface DecodedToken {
+  user: User
+  exp: number
+  iat: number
+}
+
 export interface CreateUserRequest {
   login: string
   email: string

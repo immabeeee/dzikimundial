@@ -16,8 +16,8 @@ export class TeamListFiltersFormService {
   public fillForm(form: FormGroup, filters?: Filter[]): void {
     if (!filters) return
     form.patchValue({
-      name: filters.find((e) => e.name === 'name'),
-      description: filters.find((e) => e.name === 'description'),
+      name: filters.find((e) => e.name === 'name')?.value,
+      description: filters.find((e) => e.name === 'description')?.value,
     })
   }
 }
